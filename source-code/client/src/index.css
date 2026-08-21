@@ -999,7 +999,7 @@ button:disabled { opacity:.6; cursor:wait; }
 .tide-interactive-copy h1 { font-size: clamp(4rem, 8vw, 7.8rem); line-height: .88; margin: 22px 0 28px; text-wrap: balance; }
 .tide-interactive-copy h1 em { color: #8fc8ff; }
 .tide-interactive-copy p { max-width: 470px; color: #e0edf9; font-size: 15px; line-height: 1.8; margin: 0 0 28px; }
-.tide-interactive-copy .button-light { color: #0b2345; background: #f5f8fc; border-color: #f5f8fc; }
+.tide-interactive-copy .button-light { position: relative; top: -24px; color: #0b2345; background: #f5f8fc; border-color: #f5f8fc; }
 .tide-interactive-copy .button-light:hover { background: #9dd0ff; border-color: #9dd0ff; }
 .tide-interactive-controls { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
 .tide-slide-count { display: grid; grid-template-columns: auto auto; column-gap: 8px; align-items: center; min-width: 160px; color: #aac9e8; font-size: 10px; letter-spacing: .16em; }
@@ -1018,6 +1018,7 @@ button:disabled { opacity:.6; cursor:wait; }
   .tide-interactive-copy { padding: 58px 0 42px; }
   .tide-interactive-copy h1 { font-size: clamp(3.8rem, 16vw, 5.8rem); line-height: .9; }
   .tide-interactive-copy p { font-size: 14px; line-height: 1.75; }
+  .tide-interactive-copy .button-light { top: -16px; }
   .tide-slide-buttons button { width: 42px; height: 42px; }
 }
 @media (prefers-reduced-motion: reduce) {
