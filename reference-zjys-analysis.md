@@ -1,0 +1,5 @@
+# Reference analysis: zjys-tech.com
+
+The reference uses a straightforward blue-and-white biotech manufacturer structure: a compact top navigation with Home, About, Products, Services, Contact and a prominent phone CTA; a blue hero with a left-aligned manufacturer statement, supporting paragraph, Learn More button, and a large laboratory production image; an About section with factory/R&D facts; a product section with many product cards and COA links; and a Services page built around six capability cards followed by a full-link OEM/ODM explanation.
+
+For Tide, the useful structural direction is the clear sequence of company credibility, factory capability, product catalog, COA proof, services, and contact conversion. The luxury upgrade should use more editorial spacing, stronger photography crops, finer blue rules, darker ink-blue typography, premium card surfaces, numbered sections, more disciplined copy, and a more distinctive Tide blue-white visual system. Do not copy the reference brand, claims, phone, images, or exact wording.
