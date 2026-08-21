@@ -1,1 +1,0 @@
-ALTER TABLE `inquiries` MODIFY COLUMN `status` varchar(32) NOT NULL DEFAULT 'new';
