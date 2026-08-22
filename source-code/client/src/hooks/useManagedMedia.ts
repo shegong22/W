@@ -7,7 +7,7 @@ export function useManagedMedia() {
   const get = (slot: string, fallback: string) => {
     const managedUrl = assets.get(slot)?.url;
     if (!managedUrl) return fallback;
-    return managedUrl.includes("/manus-storage/") ? `/assets/${managedUrl.split("/manus-storage/").pop()}` : managedUrl;
+    return managedUrl.includes("/manus-storage/") ? `/W/assets/${managedUrl.split("/manus-storage/").pop()}` : managedUrl;
   };
   return { get, isLoading: query.isLoading };
 }

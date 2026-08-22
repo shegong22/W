@@ -5,10 +5,10 @@ import SiteLayout, { PageHero } from "@/components/SiteLayout";
 import { useSiteCopy } from "@/hooks/useSiteCopy";
 
 const feedbackFiles = [
-  "/assets/feedback-1_0538cdc0.jpg", "/assets/feedback-2_45bfb60e.jpg", "/assets/feedback-3_bdd8a11c.jpg", "/assets/feedback-4_d066181f.jpg", "/assets/feedback-5_29e48f3a.jpg", "/assets/feedback-6_5e5922a4.jpg", "/assets/feedback-7_af6e97c1.jpg", "/assets/feedback-8_4d905265.jpg", "/assets/feedback-9_a8b89655.jpg",
+  "/W/assets/feedback-1_0538cdc0.jpg", "/W/assets/feedback-2_45bfb60e.jpg", "/W/assets/feedback-3_bdd8a11c.jpg", "/W/assets/feedback-4_d066181f.jpg", "/W/assets/feedback-5_29e48f3a.jpg", "/W/assets/feedback-6_5e5922a4.jpg", "/W/assets/feedback-7_af6e97c1.jpg", "/W/assets/feedback-8_4d905265.jpg", "/W/assets/feedback-9_a8b89655.jpg",
 ];
 const deliveryFiles = [
-  "/assets/delivery-1_b2a1580f.jpg", "/assets/delivery-2_a0acd26b.jpg", "/assets/delivery-3_b513e47e.jpg", "/assets/delivery-4_567f0739.jpg", "/assets/delivery-5_61afaf99.jpg", "/assets/delivery-6_3aeaf61e.jpg", "/assets/delivery-7_06b2f77a.jpg", "/assets/delivery-8_db263c4c.jpg", "/assets/delivery-9_a2a9308a.jpg",
+  "/W/assets/delivery-1_b2a1580f.jpg", "/W/assets/delivery-2_a0acd26b.jpg", "/W/assets/delivery-3_b513e47e.jpg", "/W/assets/delivery-4_567f0739.jpg", "/W/assets/delivery-5_61afaf99.jpg", "/W/assets/delivery-6_3aeaf61e.jpg", "/W/assets/delivery-7_06b2f77a.jpg", "/W/assets/delivery-8_db263c4c.jpg", "/W/assets/delivery-9_a2a9308a.jpg",
 ];
 
 function ArchiveGrid({ title, label, files, prefix }: { title: string; label: string; files: string[]; prefix: string }) {
