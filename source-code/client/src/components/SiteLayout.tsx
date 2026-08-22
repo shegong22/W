@@ -16,10 +16,7 @@ const navItems = [
 
 type NavProps = { mobile?: boolean; onNavigate?: () => void };
 function NavigationLinks({ mobile = false, onNavigate }: NavProps) {
-  return <>{navItems.map(([key, fallback, href], index) => key === "nav.quality" ? <div className={mobile ? "mobile-nav-group" : "nav-group"} key={href}>
-    <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} href={href} onClick={onNavigate}>{fallback}</Link>
-    <Link className={mobile ? "mobile-nav-sublink" : "nav-sublink"} href="/coa" onClick={onNavigate}>COA Reports</Link>
-  </div> : <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={onNavigate}>{fallback}</Link>)}</>;
+  return <>{navItems.map(([key, fallback, href], index) => <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={onNavigate}>{fallback}</Link>)}</>;
 }
 
 function BrandReveal() {
