@@ -84,7 +84,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
     <header className={`site-header page-header ${scrolled ? "is-scrolled" : ""}`}>
       <Link className="brand" href="/" aria-label="Tide Peptides home"><img className="brand-logo" src="/assets/tide-logo_e4a10c2a.png" alt="Tide Peptides" /></Link>
       <nav className="desktop-nav" aria-label="Primary navigation">{navItems.map(([key, fallback, href], index) => <Link className="nav-link-reveal" style={{ animationDelay: `${index * 35}ms` }} key={href} href={href}>{copy.get(key, fallback)}</Link>)}</nav>
-      <div className="header-actions"><span className="lang-switch">{copy.get("layout.language", "ENGLISH")}</span><a className="header-cta" href="https://wa.me/85253929189" target="_blank" rel="noreferrer">{copy.get("layout.whatsapp", "Chat on WhatsApp")} <ArrowUpRight size={15} /></a></div>
+      <div className="header-actions"><a className="header-cta" href="https://wa.me/85253929189" target="_blank" rel="noreferrer">{copy.get("layout.whatsapp", "Chat on WhatsApp")} <ArrowUpRight size={15} /></a></div>
       <button className="mobile-menu" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Open menu">{mobileOpen ? <X /> : <Menu />}</button>
       {mobileOpen && <nav className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([key, fallback, href], index) => <Link className="mobile-link-reveal" style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={() => setMobileOpen(false)}>{copy.get(key, fallback)}</Link>)}</nav>}
     </header>
