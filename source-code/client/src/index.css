@@ -1180,3 +1180,47 @@ button:disabled { opacity:.6; cursor:wait; }
 .copy-row-actions button:hover { border-color:#2d6db7; color:#2d6db7; }
 @media (max-width: 900px) { .copy-admin-layout { grid-template-columns:1fr; } }
 @media (max-width: 560px) { .copy-editor-panel,.copy-list-panel { padding:20px; } .copy-form-row { grid-template-columns:1fr; gap:0; } .copy-row { display:block; } .copy-row-actions { margin-top:13px; } }
+
+/* Product archive integration: structured visual catalog with consistent editorial typography. */
+.products-hero .page-hero-inner { grid-template-columns:minmax(0,1fr) auto; align-items:end; }
+.products-hero-note { display:flex; flex-direction:column; align-items:flex-end; gap:8px; color:#0b2345; padding-bottom:7px; }
+.products-hero-note span { font:72px/.8 "DM Serif Display", Georgia, serif; letter-spacing:-.06em; }
+.products-hero-note strong { font-size:12px; line-height:1.25; text-align:right; letter-spacing:.12em; text-transform:uppercase; }
+.products-hero-note small { color:#2d6db7; font-size:9px; letter-spacing:.15em; }
+.products-gallery-section { background:#f6f9fc; }
+.products-gallery-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.7fr); gap:48px; align-items:end; margin-bottom:48px; }
+.products-gallery-head h2 { margin:18px 0 0; color:#0b2345; font:400 clamp(42px,5vw,72px)/.94 "DM Serif Display", Georgia, serif; letter-spacing:-.045em; }
+.products-gallery-head h2 em { color:#2d6db7; font-style:italic; }
+.products-gallery-head p { max-width:420px; margin:0; color:#627487; font-size:13px; line-height:1.8; }
+.products-gallery-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+.product-photo-card { margin:0; min-width:0; background:#fff; border:1px solid #d6e1ec; box-shadow:0 14px 36px rgba(11,35,69,.055); transition:transform .25s ease, box-shadow .25s ease; }
+.product-photo-card:hover { transform:translateY(-5px); box-shadow:0 20px 44px rgba(11,35,69,.12); }
+.product-photo-frame { aspect-ratio:1; overflow:hidden; background:#e9eef4; }
+.product-photo-frame img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+.product-photo-card:hover .product-photo-frame img { transform:scale(1.035); }
+.product-photo-card figcaption { min-height:108px; padding:16px 17px 18px; }
+.product-photo-card figcaption span { display:block; color:#2d6db7; font-size:9px; letter-spacing:.13em; }
+.product-photo-card figcaption strong { display:block; min-height:38px; margin:12px 0 7px; color:#0b2345; font:400 21px/1.05 "DM Serif Display", Georgia, serif; }
+.product-photo-card figcaption small { display:block; color:#738497; font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
+.products-cta-section { background:#dcebf8; }
+.products-cta { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.75fr); gap:52px; align-items:end; }
+.products-cta h2 { margin:18px 0 0; color:#0b2345; font:400 clamp(40px,4.8vw,68px)/.94 "DM Serif Display", Georgia, serif; letter-spacing:-.045em; }
+.products-cta h2 em { color:#2d6db7; font-style:italic; }
+.products-cta p { margin:0 0 22px; color:#536b82; font-size:13px; line-height:1.8; }
+.products-cta .button + .button { margin-left:10px; }
+@media (max-width:1050px) { .products-gallery-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:760px) { .products-gallery-head,.products-cta { grid-template-columns:1fr; gap:25px; } .products-hero-note { align-items:flex-start; } .products-hero-note strong { text-align:left; } .products-hero-note span { font-size:58px; } .products-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:13px; } .product-photo-card figcaption { min-height:112px; padding:14px 13px 16px; } .product-photo-card figcaption strong { font-size:19px; } .products-cta .button { margin-bottom:10px; } .products-cta .button + .button { margin-left:0; } }
+@media (max-width:430px) { .products-gallery-grid { grid-template-columns:1fr; } .product-photo-card figcaption { min-height:0; } }
+
+/* Sitewide typography pass: quieter hierarchy, balanced wrapping, and consistent reading rhythm. */
+body { text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+h1,h2,h3 { text-wrap:balance; }
+p { text-wrap:pretty; }
+.page-hero p, .section-head p, .products-gallery-head p, .products-cta p { max-width:58ch; }
+.archive-label, .section-index, .hero-index { font-weight:600; }
+.section-head h2, .products-gallery-head h2, .products-cta h2 { text-wrap:balance; }
+.laboratory-order-card h3, .laboratory-guarantee-grid h3, .product-photo-card figcaption strong { text-wrap:balance; }
+.laboratory-order-card p, .laboratory-guarantee-grid p, .product-photo-card figcaption small { line-height:1.7; }
+.header-actions { flex-shrink:0; }
+@media (max-width:1050px) { .desktop-nav { gap:14px; } .desktop-nav a { font-size:12px; } .header-cta { font-size:11px; padding:11px 13px; } }
+@media (max-width:800px) { .page-hero p, .section-head p, .products-gallery-head p, .products-cta p { max-width:none; } }

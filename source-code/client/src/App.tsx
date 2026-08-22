@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Laboratory from "./pages/Laboratory";
 import Services from "./pages/Services";
 import Order from "./pages/Order";
+import Products from "./pages/Products";
 import COA from "./pages/COA";
 import Feedback from "./pages/Feedback";
 import Contact from "./pages/Contact";
@@ -18,5 +19,5 @@ import CopyAdmin from "./pages/CopyAdmin";
 
 export default function App() {
   return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster /><Router base="/W"><Switch><Route path="/" component={About} /><Route path="/laboratory" component={Laboratory} /><Route path="/services" component={Services} />
-      <Route path="/order" component={Order} /><Route path="/coa" component={COA} /><Route path="/feedback" component={Feedback} /><Route path="/contact" component={Contact} /><Route path="/admin/inquiries" component={InquiryAdmin} /><Route path="/admin/media" component={MediaAdmin} /><Route path="/admin/copy" component={CopyAdmin} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Router></TooltipProvider></ThemeProvider></ErrorBoundary>;
+      <Route path="/order" component={Order} /><Route path="/products" component={Products} /><Route path="/coa" component={COA} /><Route path="/feedback" component={Feedback} /><Route path="/contact" component={Contact} /><Route path="/admin/inquiries" component={InquiryAdmin} /><Route path="/admin/media" component={MediaAdmin} /><Route path="/admin/copy" component={CopyAdmin} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Router></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
