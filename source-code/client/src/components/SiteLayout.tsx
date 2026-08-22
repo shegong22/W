@@ -7,16 +7,19 @@ import { useSiteCopy } from "@/hooks/useSiteCopy";
 const navItems = [
   ["nav.about", "About TIDE", "/"],
   ["nav.manufacturing", "Manufacturing", "/laboratory"],
-  ["nav.technology", "Technology", "/technology"],
-  ["nav.quality", "Quality", "/services"],
-  ["nav.portfolio", "Portfolio", "/portfolio"],
-  ["nav.partners", "Partners", "/partners"],
+  ["nav.quality", "Quality System", "/services"],
+  ["nav.technology", "Peptide Technology", "/products"],
+  ["nav.portfolio", "Portfolio", "/products"],
+  ["nav.partners", "Global Partners", "/partners"],
   ["nav.contact", "Contact", "/contact"],
 ] as const;
 
 type NavProps = { mobile?: boolean; onNavigate?: () => void };
 function NavigationLinks({ mobile = false, onNavigate }: NavProps) {
-  return <>{navItems.map(([key, fallback, href], index) => <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={onNavigate}>{fallback}</Link>)}</>;
+  return <>{navItems.map(([key, fallback, href], index) => key === "nav.quality" ? <div className={mobile ? "mobile-nav-group" : "nav-group"} key={href}>
+    <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} href={href} onClick={onNavigate}>{fallback}</Link>
+    <Link className={mobile ? "mobile-nav-sublink" : "nav-sublink"} href="/coa" onClick={onNavigate}>COA Reports</Link>
+  </div> : <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={onNavigate}>{fallback}</Link>)}</>;
 }
 
 function BrandReveal() {
