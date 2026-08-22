@@ -1464,3 +1464,27 @@ p { text-wrap:pretty; }
   .service-visual-grid { grid-template-columns:1fr; }
   .service-visual-card img, .service-visual-large img { height:230px; }
 }
+
+/* Guarantee module: make the promise section unmistakable without adding empty height. */
+.homepage-guarantee-copy {
+  min-height:0;
+  padding:clamp(2rem,3.2vw,3.2rem);
+  background:linear-gradient(145deg,#092b58 0%,#0b3f83 100%);
+  border:1px solid rgba(157,211,255,.38);
+  box-shadow:0 18px 42px rgba(7,34,67,.16);
+}
+.homepage-guarantee-copy > .archive-label { color:#a9d9ff !important; }
+.homepage-guarantee-copy h2 { color:#ffffff !important; text-shadow:0 2px 14px rgba(0,0,0,.18); }
+.homepage-guarantee-copy h2 em { color:#7fc5ff !important; }
+.homepage-guarantee-copy > p { color:#e0efff !important; }
+.homepage-guarantee-copy .about-guarantee-grid { gap:0; margin-top:1.8rem; }
+.homepage-guarantee-copy .about-guarantee-grid article { padding:1rem 1rem .2rem 0; border-top-color:rgba(173,220,255,.58); }
+.homepage-guarantee-copy .about-guarantee-grid article + article { padding-left:1rem; border-left:1px solid rgba(173,220,255,.32); }
+.homepage-guarantee-copy .about-guarantee-grid article span { color:#a9d9ff !important; font-weight:800; }
+.homepage-guarantee-copy .about-guarantee-grid h3 { color:#ffffff !important; font-weight:700; }
+.homepage-guarantee-copy .about-guarantee-grid p { color:#d4e8fb !important; }
+.homepage-guarantee-image { min-height:0; height:100%; }
+@media (max-width:900px) {
+  .homepage-guarantee-copy .about-guarantee-grid article + article { padding-left:0; border-left:0; }
+  .homepage-guarantee-image { min-height:22rem; height:22rem; }
+}
