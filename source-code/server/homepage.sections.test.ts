@@ -11,7 +11,11 @@ describe("homepage section regression", () => {
     expect(aboutSource).not.toContain("about.capability.");
     expect(aboutSource).toContain("client-visit-section");
     expect(aboutSource).toContain("quality-section");
-    expect(aboutSource).toContain("oem-section");
+    expect(aboutSource).not.toContain("oem-section");
+    expect(aboutSource).not.toContain("about.oem.kicker");
+    expect(aboutSource).not.toContain("oem-flow");
+    expect(aboutSource).toContain("factory-cta-section");
+    expect(aboutSource).toContain("factory-cta");
     expect(aboutSource).toContain('href="/contact"');
   });
 });

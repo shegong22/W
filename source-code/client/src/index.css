@@ -111,7 +111,7 @@
 .quality-list svg { color:#8db9eb; flex:0 0 auto; margin-top:2px; }
 .quality-list strong { font:24px/1 "DM Serif Display",Georgia,serif; font-weight:400; }
 .quality-list p { color:#c4dcf6; font-size:12px; line-height:1.7; margin:9px 0 0; }
-.oem-section { background:#f5f8fc; }
+.oem-section, .factory-cta-section { background:#f5f8fc; }
 .oem-flow { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
 .oem-flow > div { padding:26px 24px 32px; border-right:1px solid var(--border); }
 .oem-flow > div:first-child { border-left:1px solid var(--border); }
@@ -119,7 +119,7 @@
 .oem-flow svg { display:block; color:#2d6db7; margin:38px 0 24px; }
 .oem-flow h3 { font:26px/1 "DM Serif Display",Georgia,serif; font-weight:400; margin:0 0 12px; }
 .oem-flow p { color:#6d756f; font-size:12px; line-height:1.7; margin:0; }
-.factory-cta { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:56px; padding:24px; background:#eaf1f8; }
+.factory-cta { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:0; padding:24px; background:#eaf1f8; }
 .factory-cta strong { font:28px/1 "DM Serif Display",Georgia,serif; font-weight:400; }.factory-cta p { color:#6d756f; font-size:12px; margin:8px 0 0; }
 @media (max-width:800px) { .factory-copy h2 { font-size:3.2rem; }.factory-capability-grid,.oem-flow { grid-template-columns:1fr 1fr; }.factory-capability-card { min-height:310px; }.factory-capability-card:nth-child(3),.factory-capability-card:nth-child(4),.oem-flow > div:nth-child(3),.oem-flow > div:nth-child(4) { border-top:1px solid var(--border); }.quality-layout { grid-template-columns:1fr; gap:48px; }.factory-cta { align-items:flex-start; flex-direction:column; }.factory-cta .button { width:100%; } }
 
@@ -1702,3 +1702,7 @@ p { text-wrap:pretty; }
 .product-add-button { display:inline-flex; align-items:center; gap:7px; margin-top:13px; padding:8px 0; border:0; color:#9ddaff; background:transparent; font-size:12px; font-weight:800; letter-spacing:.04em; cursor:pointer; }
 .product-add-button:hover { color:#fff; }
 @media (max-width:600px) { .product-request-list-head { display:block; }.product-request-list-head small { display:block; margin-top:5px; }.product-request-row { grid-template-columns:26px minmax(0,1fr) 82px 28px; gap:5px; }.product-request-list { padding:12px; } }
+
+/* The unmarked partnership CTA remains after the OEM / ODM section removal. */
+.factory-cta-section { padding:24px 0; }
+.factory-cta-section .factory-cta { margin-top:0; }
