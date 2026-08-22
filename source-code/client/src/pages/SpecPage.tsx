@@ -25,7 +25,7 @@ export default function SpecPage({ index, kicker, title, emphasis, intro, sectio
         {sectionIndex < sections.length - 1 && <div className="spec-divider" />}
       </article>)}
       {process && <div className="spec-process"><span className="archive-label">MANUFACTURING WORKFLOW / TRACEABLE STAGES</span><div className="spec-process-line">{process.map((step, index) => <div className="spec-process-stage" key={step}>{processImages?.[index] && <img src={processImages[index]} alt={step} loading="lazy" />}<span>0{index + 1}</span><strong>{step}</strong>{index < process.length - 1 && <b>↓</b>}</div>)}</div></div>}
-      <div className="spec-cta"><div><span className="archive-label">GLOBAL B2B COOPERATION</span><h3>{cta}</h3></div><Link className="button button-primary" href="/contact">Contact Our Team <ArrowUpRight size={16} /></Link></div>
+      {index === "06" && <div className="spec-contact-panel"><a href="https://wa.me/85253929189" target="_blank" rel="noreferrer"><span>DIRECT CHANNEL</span><strong>WhatsApp / +852 5392 9189</strong><small>For business inquiries and fast coordination.</small></a><div><span>CHINA OPERATIONS</span><strong>Guangzhou, Guangdong / China</strong><small>Manufacturing, documentation, and supply coordination.</small></div><Link href="/contact"><span>TECHNICAL SUPPORT</span><strong>Send a research requirement</strong><small>Product, specification, quantity, or OEM/ODM support.</small></Link></div>}<div className="spec-cta"><div><span className="archive-label">GLOBAL B2B COOPERATION</span><h3>{cta}</h3></div><Link className="button button-primary" href="/contact">Contact Our Team <ArrowUpRight size={16} /></Link></div>
     </div></section>
   </main></SiteLayout>;
 }
