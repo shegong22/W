@@ -6,9 +6,10 @@ import { useSiteCopy } from "@/hooks/useSiteCopy";
 
 const navItems = [
   ["nav.about", "About", "/"],
-  ["nav.laboratory", "Laboratory", "/laboratory"],
-  ["nav.services", "Services", "/services"],
+  ["nav.laboratory", "Manufacturing", "/laboratory"],
+  ["nav.services", "Quality Assurance", "/services"],
   ["nav.products", "Products", "/products"],
+  ["nav.partners", "Global Partners", "/partners"],
   ["nav.coa", "COA Reports", "/coa"],
   ["nav.feedback", "Feedback", "/feedback"],
   ["nav.contact", "Contact", "/contact"],

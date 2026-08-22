@@ -1,0 +1,40 @@
+import { ArrowUpRight, CheckCircle2, Factory, FlaskConical, Globe2, ShieldCheck } from "lucide-react";
+import { Link } from "wouter";
+import SiteLayout, { PageHero } from "@/components/SiteLayout";
+
+type Card = { title: string; body: string; icon?: typeof Factory };
+
+type Props = {
+  index: string;
+  kicker: string;
+  title: string;
+  emphasis: string;
+  intro: string;
+  sections: { label: string; title: string; body: string; cards?: Card[] }[];
+  process?: string[];
+  cta?: string;
+};
+
+export default function SpecPage({ index, kicker, title, emphasis, intro, sections, process, cta = "Discuss a research requirement" }: Props) {
+  return <SiteLayout><main><PageHero index={index} total="06" kicker={kicker} title={<>{title}<br /><em>{emphasis}</em></>} intro={intro} />
+    <section className="section spec-page-content"><div className="container">
+      {sections.map((section, sectionIndex) => <article className="spec-block" key={section.label}>
+        <div className="spec-block-head"><span className="section-index">{String(sectionIndex + 1).padStart(2, "0")}</span><div><span className="archive-label">{section.label}</span><h2>{section.title}</h2><p>{section.body}</p></div></div>
+        {section.cards && <div className="spec-card-grid">{section.cards.map((card, index) => { const Icon = card.icon ?? CheckCircle2; return <div className="spec-card" key={card.title}><Icon size={22} /><span>0{index + 1}</span><h3>{card.title}</h3><p>{card.body}</p></div>; })}</div>}
+        {sectionIndex < sections.length - 1 && <div className="spec-divider" />}
+      </article>)}
+      {process && <div className="spec-process"><span className="archive-label">MANUFACTURING WORKFLOW / TRACEABLE STAGES</span><div className="spec-process-line">{process.map((step, index) => <div key={step}><span>0{index + 1}</span><strong>{step}</strong>{index < process.length - 1 && <b>↓</b>}</div>)}</div></div>}
+      <div className="spec-cta"><div><span className="archive-label">GLOBAL B2B COOPERATION</span><h3>{cta}</h3></div><Link className="button button-primary" href="/contact">Contact Our Team <ArrowUpRight size={16} /></Link></div>
+    </div></section>
+  </main></SiteLayout>;
+}
+
+export function AboutTide() { return <SpecPage index="02" kicker="ABOUT TIDE / COMPANY OVERVIEW" title="A scientific approach" emphasis="to peptide manufacturing." intro="TIDE Peptide Laboratory is a China-based peptide manufacturing partner serving biotechnology and research companies worldwide." sections={[{ label:"COMPANY OVERVIEW", title:"Professional manufacturing experience.", body:"We coordinate peptide production, product documentation, quality review, and global supply requirements through one clear operating system.", cards:[{title:"Scientific approach",body:"Technical requirements are translated into clear production and documentation steps.",icon:FlaskConical},{title:"Quality-driven production",body:"Quality management and batch documentation remain central to every collaboration.",icon:ShieldCheck},{title:"Global cooperation",body:"We communicate with international B2B customers around confirmed specifications and delivery conditions.",icon:Globe2}]},{label:"OUR MISSION / OUR VISION",title:"Build confidence through clarity.",body:"Our mission is to make peptide manufacturing easier to review, easier to coordinate, and suitable for long-term cooperation."},{label:"OUR VALUES / WHY CHOOSE TIDE",title:"Reliable partnership over short-term selling.",body:"We avoid lowest-price claims and focus on trust, quality, manufacturing capability, technology, and partnership."}]}/> }
+
+export function Manufacturing() { return <SpecPage index="03" kicker="MANUFACTURING / PRODUCTION CAPABILITY" title="Manufacturing & Production" emphasis="Capability" intro="A China-based manufacturing facility, technical team, and documented workflow for global peptide customers." sections={[{label:"FACILITY CAPABILITY",title:"Real environments support real production.",body:"Our facility combines peptide production, process management, analytical instrumentation, and packaging coordination.",cards:[{title:"Manufacturing facility",body:"A dedicated China-based environment for peptide research and production.",icon:Factory},{title:"Production environment",body:"Controlled operations support consistent process execution and product handling.",icon:FlaskConical},{title:"Technical team",body:"Experienced scientists and quality professionals coordinate requirements with precision.",icon:ShieldCheck},{title:"Facility Gallery",body:"Laboratory, production area, quality control area, and packaging area evidence.",icon:Globe2}]}]} process={["Raw Material Preparation","Peptide Synthesis","Purification","Analytical Testing","Quality Release"]}/> }
+
+export function Quality() { return <SpecPage index="04" kicker="QUALITY ASSURANCE / TESTING" title="Quality Assurance" emphasis="& Testing" intro="Analytical review, batch traceability, and COA documentation help customers assess each peptide requirement." sections={[{label:"ANALYTICAL TESTING",title:"Evidence before release.",body:"Quality review is organized around the records customers need to understand product identity, purity, and batch status.",cards:[{title:"HPLC analysis",body:"Chromatographic review supports purity assessment and batch documentation.",icon:FlaskConical},{title:"Mass spectrometry",body:"Mass analysis supports identity verification for peptide products.",icon:CheckCircle2},{title:"Purity testing",body:"Testing records are organized for clear review and communication.",icon:ShieldCheck},{title:"Identity verification",body:"Product identity and specification confirmation remain part of the review process.",icon:CheckCircle2}]},{label:"BATCH TRACEABILITY",title:"Each batch has a reviewable record.",body:"Batch information, testing records, and quality documentation are coordinated for customer assessment."},{label:"COA VERIFICATION",title:"Review the available documentation.",body:"Our COA Reports area provides a direct path to available laboratory reports and supporting records."}]}/> }
+
+export function Partners() { return <SpecPage index="05" kicker="GLOBAL PARTNERS / INTERNATIONAL SUPPLY" title="Global Supply" emphasis="Partnership" intro="TIDE supports customers worldwide through stable manufacturing, professional communication, reliable logistics support, and long-term cooperation." sections={[{label:"GLOBAL B2B SUPPORT",title:"A clear partner path across markets.",body:"We coordinate product information, documentation, packaging, destination requirements, and delivery milestones with customers worldwide.",cards:[{title:"North America",body:"Stable supply coordination and direct communication for North American research customers.",icon:Globe2},{title:"Europe",body:"Documentation-led collaboration for European biotechnology and research companies.",icon:ShieldCheck},{title:"Asia-Pacific",body:"Responsive coordination across the Asia-Pacific region and international supply routes.",icon:Factory}]},{label:"PARTNERSHIP PRINCIPLES",title:"Reliable communication creates repeat collaboration.",body:"We build long-term relationships around confirmed requirements, transparent documentation, and responsible follow-up."}]}/> }
+
+export function ContactSpec() { return <SpecPage index="06" kicker="CONTACT / BUSINESS COOPERATION" title="Start a clear" emphasis="business conversation." intro="Contact TIDE for a business inquiry, bulk order support, or technical consultation." sections={[{label:"BUSINESS INQUIRY",title:"Tell us what you need to source.",body:"Send the product name, specification, quantity, packaging requirement, target market, or technical question so our team can respond precisely.",cards:[{title:"Business Inquiry",body:"For product models, specifications, quotation review, and supply planning.",icon:Globe2},{title:"Bulk Order Support",body:"For confirmed quantities, packaging conditions, delivery coordination, and repeat supply.",icon:Factory},{title:"Technical Consultation",body:"For peptide model requirements, documentation, quality review, and OEM/ODM discussions.",icon:FlaskConical}]}]}/> }
