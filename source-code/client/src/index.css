@@ -1244,3 +1244,17 @@ p { text-wrap:pretty; }
 .production-flow-head { max-width:none; }
 .production-flow-head h2 { max-width:none; }
 @media (max-width:900px) { .production-flow-head h2 { max-width:none; } }
+
+/* Customer-readable compact pass: clear emphasis without oversized type or empty bands. */
+.facility-profile-section, .about-peptide-visuals, .client-visit-section, .production-flow-section { padding:58px 0; }
+.facility-profile-heading h2, .about-visual-head h2, .production-flow-head h2 { font-size:clamp(2.65rem,4.2vw,4.35rem); line-height:1; letter-spacing:-.045em; }
+.facility-profile-copy { padding-top:0; }
+.facility-profile-copy .facility-lead, .production-flow-head p, .about-visual-head p { font-weight:500; }
+.about-visual-head { margin-bottom:18px; }
+.production-flow-head { margin-bottom:20px; }
+.production-flow-head h2 { max-width:22ch; }
+.production-flow-grid { gap:12px; }
+.production-flow-copy { min-height:140px; padding:16px 18px 18px; }
+.production-flow-feature .production-flow-image img { height:300px; }
+.production-flow-step { min-height:170px; padding:18px; }
+@media (max-width:800px) { .facility-profile-section, .about-peptide-visuals, .client-visit-section, .production-flow-section { padding:48px 0; } .facility-profile-heading h2, .about-visual-head h2, .production-flow-head h2 { font-size:clamp(2.35rem,8.5vw,3.7rem); } .production-flow-feature .production-flow-image img { height:230px; } .production-flow-copy { min-height:0; } }
