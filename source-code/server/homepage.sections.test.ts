@@ -25,14 +25,16 @@ describe("homepage section regression", () => {
     expect(feedbackSource).toContain("Customer Feedback Files");
     expect(feedbackSource).toContain("Delivery Records");
     expect(feedbackSource).toContain("feedback-archive");
-    expect(appSource).toContain('Feedback titleOverride="Feedback Files"');
+    expect(appSource).toContain('function PartnersFeedback() { return <Feedback />; }');
     expect(appSource).toContain('<Route path="/partners" component={PartnersFeedback} />');
+    expect(appSource).not.toContain('titleOverride="Feedback Files"');
     expect(appSource).toContain('function FeedbackRoute() { return <Feedback />; }');
     expect(appSource).toContain('<Route path="/feedback" component={FeedbackRoute} />');
     expect(specPageSource).not.toContain("spec-feedback-preview");
     expect(specPageSource).not.toContain("feedbackPreview");
     expect(specPageSource).not.toContain('feedback-1_0538cdc0.jpg');
     expect(specPageSource).not.toContain('delivery-3_b513e47e.jpg');
+    expect(readFileSync(resolve(import.meta.dirname, "../client/src/components/SiteLayout.tsx"), "utf8")).toContain('["nav.partners", "Feedback Files", "/partners"]');
     expect(specPageSource).toContain("spec-partner-support-preview");
     expect(specPageSource).toContain("partnerSupportPreview />");
 

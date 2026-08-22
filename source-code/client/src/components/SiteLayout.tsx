@@ -9,7 +9,7 @@ const navItems = [
   ["nav.manufacturing", "Manufacturing", "/laboratory"],
   ["nav.coa", "COA Reports", "/coa"],
   ["nav.portfolio", "Portfolio", "/products"],
-  ["nav.partners", "Partners", "/partners"],
+  ["nav.partners", "Feedback Files", "/partners"],
   ["nav.contact", "Contact", "/contact"],
 ] as const;
 

@@ -313,3 +313,11 @@
 - [x] Change only the Partners-route Customer Feedback hero title to `Feedback Files`
 - [x] Preserve all other copy, images, archive content, layout, routes, and admin integration
 - [x] Run tests, build, and targeted desktop/mobile verification before publishing
+
+
+# 导航与页面主标题位置修正
+
+- [x] Change the top navigation label `Partners` to `Feedback Files`
+- [x] Restore the Partners-route hero title to `Customer Feedback, Complete Archive.`
+- [x] Preserve all images, body copy, archive content, layout, and route behavior
+- [x] Run tests, build, and targeted desktop/mobile verification before publishing

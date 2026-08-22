@@ -18,7 +18,7 @@ import InquiryAdmin from "./pages/InquiryAdmin";
 import MediaAdmin from "./pages/MediaAdmin";
 import CopyAdmin from "./pages/CopyAdmin";
 
-function PartnersFeedback() { return <Feedback titleOverride="Feedback Files" />; }
+function PartnersFeedback() { return <Feedback />; }
 function FeedbackRoute() { return <Feedback />; }
 
 export default function App() {
