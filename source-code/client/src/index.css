@@ -1059,6 +1059,21 @@ button:disabled { opacity:.6; cursor:wait; }
   .tide-interactive-hero { height: clamp(620px, 56.25vw, 720px); min-height: 620px; }
 }
 
+/* Viewport-fit correction: keep homepage Hero copy and CTA inside a normal desktop browser viewport. */
+@media (min-width: 801px) and (max-height: 960px) {
+  .tide-interactive-hero { height: calc(100svh - 136px); min-height: 650px; max-height: 780px; }
+  .tide-interactive-inner { min-height: 0; }
+  .tide-interactive-copy { padding: 34px 0 28px; }
+  .tide-interactive-copy h1 { font-size: clamp(3.7rem, 7vw, 6.5rem); line-height: .88; margin: 16px 0 20px; }
+  .tide-interactive-copy p { margin-bottom: 20px; }
+  .tide-interactive-copy .button-light { top: 0; }
+}
+@media (max-width: 800px) {
+  .tide-interactive-hero { height: auto; min-height: 720px; }
+  .tide-interactive-inner { min-height: 720px; }
+  .tide-interactive-copy .button-light { top: 0; }
+}
+
 /* Homepage-first trust section: ordering proof before the factory profile. */
 .homepage-trust-section { background: #f5f8fc; }
 .homepage-trust-intro { display: grid; grid-template-columns: 1.05fr .95fr; gap: 5rem; align-items: end; margin-bottom: 4rem; }
