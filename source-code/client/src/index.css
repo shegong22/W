@@ -1575,3 +1575,11 @@ p { text-wrap:pretty; }
 .mobile-nav-group .mobile-nav-sublink { padding-left:20px; color:#2d6db7; font-size:12px; letter-spacing:.08em; text-decoration:none; }
 @media (max-width:1150px) { .desktop-nav { gap:12px; }.nav-sublink { font-size:8px; padding-left:5px; }.header-cta { padding:11px 12px; font-size:9px; } }
 @media (max-width:900px) { .desktop-nav,.header-actions { display:none; } .mobile-nav { padding:16px 20px 22px; } .mobile-nav-group { border-top:1px solid rgba(13,36,69,.12); } .mobile-nav-group .mobile-link-reveal { padding-bottom:0; } }
+
+/* Final navigation system: seven concise labels, one line, premium B2B balance. */
+.desktop-nav { display:flex; flex:1 1 auto; flex-wrap:nowrap; min-width:0; align-items:center; justify-content:flex-end; gap:clamp(12px,1.55vw,25px); white-space:nowrap; }
+.desktop-nav .nav-link-reveal { display:inline-block; white-space:nowrap; font-size:clamp(10px,.78vw,13px); letter-spacing:.025em; font-weight:650; }
+.header-actions { flex:0 0 auto; margin-left:clamp(12px,1.8vw,28px); }
+.header-cta { white-space:nowrap; }
+@media (max-width:1120px) { .desktop-nav { gap:10px; }.desktop-nav .nav-link-reveal { font-size:10px; }.header-actions { margin-left:10px; }.header-cta { padding:10px 11px; font-size:9px; } }
+@media (max-width:900px) { .desktop-nav { display:none; } }
