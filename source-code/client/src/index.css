@@ -1589,3 +1589,13 @@ p { text-wrap:pretty; }
 .spec-card-image { display:block; width:calc(100% + 48px); height:170px; margin:-24px -24px 22px; object-fit:cover; border-bottom:1px solid rgba(45,109,183,.2); filter:saturate(.82) contrast(1.03); }
 .spec-card:has(.spec-card-image) { overflow:hidden; padding-top:24px; }
 @media (max-width:900px) { .spec-card-image { height:150px; } }
+
+/* Global Partners: match homepage visual card rhythm. */
+.spec-page-content .spec-card-grid:has(.spec-partner-card) { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:start; }
+.spec-page-content .spec-partner-card { display:flex; flex-direction:column; grid-column:auto!important; grid-row:auto!important; min-width:0; margin:0; border:1px solid rgba(11,35,69,.16); background:#fff; box-shadow:0 14px 30px rgba(11,35,69,.08); }
+.spec-page-content .spec-partner-card img { display:block; width:100%; height:clamp(150px,16vw,235px); object-fit:cover; margin:0; aspect-ratio:4/3; }
+.spec-page-content .spec-partner-card figcaption { display:flex; flex-direction:column; gap:10px; padding:20px 20px 22px; }
+.spec-page-content .spec-partner-card figcaption span { color:#2d6db7; font-size:10px; font-weight:700; letter-spacing:.12em; }
+.spec-page-content .spec-partner-card figcaption strong { color:#0b2345; font-family:inherit; font-size:clamp(18px,1.55vw,26px); line-height:1.05; }
+.spec-page-content .spec-partner-card figcaption p { margin:0; color:#52657d; font-size:13px; line-height:1.55; }
+@media (max-width:900px) { .spec-page-content .spec-card-grid:has(.spec-partner-card) { grid-template-columns:1fr; gap:16px; }.spec-page-content .spec-partner-card img { height:220px; }.spec-page-content .spec-partner-card figcaption { padding:18px; } }
