@@ -1224,3 +1224,11 @@ p { text-wrap:pretty; }
 .header-actions { flex-shrink:0; }
 @media (max-width:1050px) { .desktop-nav { gap:14px; } .desktop-nav a { font-size:12px; } .header-cta { font-size:11px; padding:11px 13px; } }
 @media (max-width:800px) { .page-hero p, .section-head p, .products-gallery-head p, .products-cta p { max-width:none; } }
+
+/* Laboratory layout refinement: reduce excessive vertical whitespace while preserving the editorial rhythm. */
+.laboratory-intro-section, .laboratory-evidence-section, .laboratory-order-section, .laboratory-guarantee-section { padding:104px 0; }
+.laboratory-intro-grid { gap:clamp(32px,5vw,76px); }
+.laboratory-evidence-grid { margin-top:40px; }
+.laboratory-order-grid { margin-top:40px; }
+.laboratory-guarantee-grid { margin-top:52px; }
+@media (max-width:560px) { .laboratory-intro-section, .laboratory-evidence-section, .laboratory-order-section, .laboratory-guarantee-section { padding:76px 0; } }
