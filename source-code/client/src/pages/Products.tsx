@@ -62,7 +62,7 @@ export default function Products() {
             <div className="products-gallery-grid">
               {productPhotos.map((product, index) => (
                 <figure className="product-photo-card" key={`${product.image}-${index}`}>
-                  <div className="product-photo-frame"><img src={`/assets/products/${product.image}`} alt={`${product.name} ${product.sku} product batch`} loading={index > 5 ? "lazy" : "eager"} /></div>
+                  <div className="product-photo-frame"><img src={`/W/assets/products/${product.image}`} alt={`${product.name} ${product.sku} product batch`} loading={index > 5 ? "lazy" : "eager"} /></div>
                   <figcaption><span>{String(index + 1).padStart(2, "0")} / {product.sku}</span><strong>{product.name}</strong><small>{product.label}</small></figcaption>
                 </figure>
               ))}
