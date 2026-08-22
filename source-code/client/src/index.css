@@ -1645,3 +1645,20 @@ p { text-wrap:pretty; }
 .spec-contact-panel small { margin-top:auto; color:#617189; font-size:13px; line-height:1.5; }
 .spec-contact-panel a:hover { border-color:#2d6db7; box-shadow:0 12px 26px rgba(11,35,69,.08); }
 @media (max-width:900px) { .spec-contact-panel { grid-template-columns:1fr; }.spec-contact-panel > a,.spec-contact-panel > div { min-height:135px; } }
+
+/* Premium partnership registration form. */
+.premium-partnership-form { position:relative; overflow:hidden; padding:clamp(28px,4vw,54px); border:1px solid rgba(65,139,220,.35); background:linear-gradient(145deg,#0b2345 0%,#123d79 58%,#1d6cbc 100%); box-shadow:0 24px 55px rgba(11,35,69,.18); }
+.premium-partnership-form::after { content:""; position:absolute; width:360px; height:360px; right:-180px; top:-170px; border:1px solid rgba(157,218,255,.28); border-radius:50%; box-shadow:0 0 0 34px rgba(157,218,255,.05),0 0 0 68px rgba(157,218,255,.04); pointer-events:none; }
+.premium-partnership-form > * { position:relative; z-index:1; }
+.form-form-heading { margin-bottom:28px; }
+.form-form-heading .archive-label { color:#9ddaff; }
+.form-form-heading h2 { margin:12px 0 10px; color:#fff; font-family:var(--display-font,Georgia,serif); font-size:clamp(32px,3.5vw,54px); line-height:.98; letter-spacing:-.04em; }
+.form-form-heading h2 em { color:#9ddaff; }
+.form-form-heading p { max-width:520px; margin:0; color:rgba(255,255,255,.72); font-size:14px; line-height:1.6; }
+.premium-partnership-form label { color:rgba(255,255,255,.86); font-size:12px; font-weight:650; letter-spacing:.03em; }
+.premium-partnership-form input,.premium-partnership-form textarea,.premium-partnership-form select { margin-top:8px; border:1px solid rgba(157,218,255,.34); border-radius:0; background:rgba(255,255,255,.09); color:#fff; }
+.premium-partnership-form input::placeholder,.premium-partnership-form textarea::placeholder { color:rgba(255,255,255,.48); }
+.premium-partnership-form select option { color:#0b2345; }
+.premium-partnership-form .consent { color:rgba(255,255,255,.68); }
+.premium-partnership-form .button-light { margin-top:10px; background:#9ddaff; color:#0b2345; }
+@media (max-width:900px) { .premium-partnership-form { padding:24px 20px; }.form-form-heading h2 { font-size:38px; } }
