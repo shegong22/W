@@ -13,6 +13,8 @@ describe("homepage section regression", () => {
     expect(aboutSource).not.toContain("capability-section");
     expect(aboutSource).not.toContain("about.capability.");
     expect(aboutSource).toContain("client-visit-section");
+    expect(aboutSource).toContain('copy.get("about.hero.meta", "ABOUT TIDE")');
+    expect(aboutSource).not.toContain('copy.get("about.hero.meta", "ABOUT TIDE / 07")');
     expect(aboutSource).toContain("quality-section");
     expect(aboutSource).not.toContain("oem-section");
     expect(aboutSource).not.toContain("about.oem.kicker");

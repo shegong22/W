@@ -321,3 +321,10 @@
 - [x] Restore the Partners-route hero title to `Customer Feedback, Complete Archive.`
 - [x] Preserve all images, body copy, archive content, layout, and route behavior
 - [x] Run tests, build, and targeted desktop/mobile verification before publishing
+
+
+# 首页 About TIDE 标记简化
+
+- [x] Remove only the `/ 07` suffix from the homepage `ABOUT TIDE / 07` meta label
+- [x] Preserve all other page, COA, workflow, feedback-file, delivery-file, image, and layout content
+- [x] Run tests, build, and targeted homepage desktop/mobile verification before publishing

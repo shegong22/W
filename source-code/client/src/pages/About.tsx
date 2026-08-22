@@ -39,7 +39,7 @@ export default function About() {
           <div className="tide-interactive-image" key={slide.slot} style={{ backgroundImage: `linear-gradient(90deg, rgba(5,24,54,.84) 0%, rgba(9,43,88,.5) 48%, rgba(9,43,88,.12) 100%), url(${managed.get(slide.slot, slide.fallback)})` }} />
           <div className="tide-interactive-grid" aria-hidden="true" />
           <div className="container tide-interactive-inner">
-            <div className="tide-interactive-meta"><span>{copy.get("about.hero.meta", "ABOUT TIDE / 07")}</span><span>{copy.get("about.hero.location", "GUANGZHOU, CHINA")}</span></div>
+            <div className="tide-interactive-meta"><span>{copy.get("about.hero.meta", "ABOUT TIDE")}</span><span>{copy.get("about.hero.location", "GUANGZHOU, CHINA")}</span></div>
             <div className="tide-interactive-copy" key={slide.slot}>
               <span className="archive-label">{slideKicker}</span>
               <h1>{copy.get(`about.hero.${activeSlide + 1}.title`, slideTitleFallback)}</h1>
