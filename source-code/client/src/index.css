@@ -1527,3 +1527,38 @@ p { text-wrap:pretty; }
   .homepage-guarantee-copy .about-guarantee-grid article + article { padding-left:0; }
   .homepage-guarantee-copy .about-guarantee-grid h3 { min-height:0; }
 }
+
+/* Group frame: emphasize the complete 01/02/03 guarantee content area. */
+.homepage-guarantee-copy .about-guarantee-grid {
+  margin-top:2rem;
+  padding:0;
+  border:1px solid rgba(155,211,255,.78);
+  border-radius:4px;
+  background:rgba(4,28,62,.34);
+  box-shadow:0 0 0 4px rgba(78,157,224,.10), inset 0 0 28px rgba(95,183,255,.08);
+  overflow:hidden;
+}
+.homepage-guarantee-copy .about-guarantee-grid article {
+  padding:1.25rem 1.1rem 1.15rem;
+  border-top:0;
+  border-left:1px solid rgba(155,211,255,.34);
+}
+.homepage-guarantee-copy .about-guarantee-grid article:first-child { border-left:0; }
+.homepage-guarantee-copy .about-guarantee-grid article > span {
+  display:block;
+  margin-bottom:.85rem;
+  color:#a9d9ff !important;
+}
+.homepage-guarantee-copy .about-guarantee-grid h3 {
+  border:0;
+  border-left:3px solid #72c4ff;
+  border-radius:0;
+  margin:0 0 1rem;
+  padding:10px 12px;
+  background:rgba(114,196,255,.13);
+}
+.homepage-guarantee-copy .about-guarantee-grid p { margin:0; }
+@media (max-width:900px) {
+  .homepage-guarantee-copy .about-guarantee-grid article { border-left:0; border-top:1px solid rgba(155,211,255,.34); }
+  .homepage-guarantee-copy .about-guarantee-grid article:first-child { border-top:0; }
+}
