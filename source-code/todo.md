@@ -282,3 +282,12 @@
 - [x] Keep the standalone Feedback archive page, all other page content, routes, and inquiry links unchanged
 - [x] Run source tests, production build, and desktop/mobile regression checks for the block migration
 - [x] Refresh clean-route HTML bundle references and publish the GitHub Pages update
+
+
+# Manufacturing Customer Feedback 内容回填
+
+- [x] Replace the migrated Manufacturing-page Global B2B Support copy with the Customer Feedback archive preview copy
+- [x] Restore the original Customer Feedback and Delivery image assets at that Manufacturing-page position
+- [x] Keep the standalone Feedback archive page, Partners page content, routes, and inquiry links unchanged
+- [x] Run source tests, production build, and desktop/mobile regression checks for the content and asset replacement
+- [x] Refresh clean-route HTML bundle references and publish the GitHub Pages revision

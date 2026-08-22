@@ -24,18 +24,19 @@ describe("homepage section regression", () => {
     expect(feedbackSource).toContain("Customer Feedback Files");
     expect(feedbackSource).toContain("Delivery Records");
     expect(feedbackSource).toContain("feedback-archive");
-    expect(specPageSource).not.toContain("spec-feedback-preview");
-    expect(specPageSource).not.toContain("feedbackPreview");
-    expect(specPageSource).not.toContain('feedback-1_0538cdc0.jpg');
-    expect(specPageSource).not.toContain('delivery-3_b513e47e.jpg');
-    expect(specPageSource).toContain("spec-partner-support-preview");
-    expect(specPageSource).toContain("partnerSupportPreview />");
+    expect(specPageSource).toContain("spec-feedback-preview");
+    expect(specPageSource).toContain("customerFeedbackPreview");
+    expect(specPageSource).toContain('feedback-1_0538cdc0.jpg');
+    expect(specPageSource).toContain('delivery-3_b513e47e.jpg');
+    expect(specPageSource).not.toContain("spec-partner-support-preview");
+    expect(specPageSource).not.toContain("partnerSupportPreview");
 
     const partnersSource = specPageSource.slice(specPageSource.indexOf("export function Partners()"), specPageSource.indexOf("export function ContactSpec()"));
     expect(partnersSource).not.toContain("GLOBAL B2B SUPPORT");
     expect(partnersSource).toContain("PARTNERSHIP PRINCIPLES");
 
     const manufacturingSource = specPageSource.slice(specPageSource.indexOf("export function Manufacturing()"), specPageSource.indexOf("export function Technology()"));
-    expect(manufacturingSource).toContain("partnerSupportPreview />");
+    expect(manufacturingSource).toContain("customerFeedbackPreview />");
+    expect(specPageSource).toContain("CUSTOMER FEEDBACK / FIELD NOTES");
   });
 });
