@@ -7,10 +7,10 @@ import { useSiteCopy } from "@/hooks/useSiteCopy";
 const navItems = [
   ["nav.about", "About TIDE", "/"],
   ["nav.manufacturing", "Manufacturing", "/laboratory"],
-  ["nav.quality", "Quality System", "/services"],
-  ["nav.technology", "Peptide Technology", "/products"],
+  ["nav.quality", "Quality", "/services"],
+  ["nav.technology", "Technology", "/products"],
   ["nav.portfolio", "Portfolio", "/products"],
-  ["nav.partners", "Global Partners", "/partners"],
+  ["nav.partners", "Partners", "/partners"],
   ["nav.contact", "Contact", "/contact"],
 ] as const;
 
