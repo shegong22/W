@@ -1239,3 +1239,8 @@ p { text-wrap:pretty; }
 .about-visual-head { margin-bottom:24px; }
 .production-flow-head { margin-bottom:26px; }
 @media (max-width:800px) { .facility-profile-section, .about-peptide-visuals, .client-visit-section, .production-flow-section { padding:64px 0; } .facility-profile-copy { padding-top:12px; } }
+
+/* Production Flow final width correction: the editorial title should breathe horizontally, not stack word by word. */
+.production-flow-head { max-width:none; }
+.production-flow-head h2 { max-width:none; }
+@media (max-width:900px) { .production-flow-head h2 { max-width:none; } }
