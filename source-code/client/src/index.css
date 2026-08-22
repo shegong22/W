@@ -1584,3 +1584,8 @@ p { text-wrap:pretty; }
 .header-cta { white-space:nowrap; }
 @media (max-width:1150px) { .desktop-nav { gap:10px; }.desktop-nav .nav-link-reveal { font-size:10px; }.header-actions { margin-left:10px; }.header-cta { padding:10px 12px; font-size:9px; } }
 @media (max-width:900px) { .desktop-nav,.header-actions { display:none; } }
+
+/* Global Partners visual layer: international, non-person-led biotech imagery. */
+.spec-card-image { display:block; width:calc(100% + 48px); height:170px; margin:-24px -24px 22px; object-fit:cover; border-bottom:1px solid rgba(45,109,183,.2); filter:saturate(.82) contrast(1.03); }
+.spec-card:has(.spec-card-image) { overflow:hidden; padding-top:24px; }
+@media (max-width:900px) { .spec-card-image { height:150px; } }
