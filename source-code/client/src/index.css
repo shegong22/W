@@ -1673,3 +1673,17 @@ p { text-wrap:pretty; }
 .contact-page-section .premium-partnership-form textarea { min-height:126px; }
 .contact-page-section .premium-partnership-form .button-light { background:#9ddaff!important; color:#0b2345!important; }
 @media (max-width:900px) { .contact-page-section .premium-partnership-form { padding:24px 18px; } }
+
+/* Multi-product request builder. */
+.product-request-list { margin:22px 0 4px; padding:16px; border:1px solid rgba(157,218,255,.32); background:rgba(5,20,43,.2); }
+.product-request-list-head { display:flex; justify-content:space-between; align-items:baseline; gap:14px; margin-bottom:12px; }
+.product-request-list-head span { color:#fff; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.product-request-list-head small { color:rgba(255,255,255,.62); font-size:11px; }
+.product-request-row { display:grid; grid-template-columns:34px minmax(0,1.6fr) minmax(100px,.8fr) 28px; gap:8px; align-items:center; margin-top:8px; }
+.product-request-row select { margin:0!important; min-width:0; }
+.product-request-number { color:#9ddaff; font-family:monospace; font-size:11px; }
+.product-remove-button { display:grid; place-items:center; width:28px; height:36px; border:1px solid rgba(157,218,255,.3); color:#9ddaff; background:transparent; cursor:pointer; }
+.product-remove-button:hover { color:#fff; border-color:#9ddaff; background:rgba(157,218,255,.14); }
+.product-add-button { display:inline-flex; align-items:center; gap:7px; margin-top:13px; padding:8px 0; border:0; color:#9ddaff; background:transparent; font-size:12px; font-weight:800; letter-spacing:.04em; cursor:pointer; }
+.product-add-button:hover { color:#fff; }
+@media (max-width:600px) { .product-request-list-head { display:block; }.product-request-list-head small { display:block; margin-top:5px; }.product-request-row { grid-template-columns:26px minmax(0,1fr) 82px 28px; gap:5px; }.product-request-list { padding:12px; } }
