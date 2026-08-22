@@ -1317,3 +1317,22 @@ p { text-wrap:pretty; }
   .production-flow-feature { grid-column:auto; display:block; }
   .production-flow-feature .production-flow-image, .production-flow-feature .production-flow-image img, .production-flow-image img { height:220px; }
 }
+
+/* Editorial headings use explicit areas because the JSX children are direct siblings. */
+.about-visual-head, .production-flow-head {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-areas:"kicker title" "intro title";
+  column-gap:10%;
+  row-gap:0;
+  align-items:end;
+  margin-bottom:28px;
+}
+.about-visual-head > .archive-label, .production-flow-head > .archive-label { grid-area:kicker; align-self:end; }
+.about-visual-head > h2, .production-flow-head > h2 { grid-area:title; align-self:end; margin:0; }
+.about-visual-head > p, .production-flow-head > p { grid-area:intro; align-self:end; margin:18px 0 0; }
+@media (max-width:800px) {
+  .about-visual-head, .production-flow-head { display:block; }
+  .about-visual-head > h2, .production-flow-head > h2 { margin:16px 0 0; }
+  .about-visual-head > p, .production-flow-head > p { margin-top:18px; }
+}
