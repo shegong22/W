@@ -69,7 +69,7 @@ export default function Products() {
             </div>
           </div>
         </section>
-        <section className="section products-cta-section"><div className="container products-cta"><div><span className="archive-label">PRODUCT CONFIRMATION</span><h2>Have a model in mind?<br /><em>Send the exact SKU.</em></h2></div><div><p>For a quotation or documentation request, send the product name, SKU, specification, and quantity through WhatsApp. Our team will confirm the matching catalog entry.</p><a className="button button-dark" href="https://wa.me/85253929189" target="_blank" rel="noreferrer">Confirm a Product <ArrowUpRight size={16} /></a><Link className="button button-primary" href="/coa">Review COA Reports <ArrowUpRight size={16} /></Link></div></div></section>
+        <section className="section products-cta-section"><div className="container products-cta"><div><span className="archive-label">PRODUCT CONFIRMATION</span><h2>Have a model in mind?<br /><em>Send the exact SKU.</em></h2></div><div><p>For a quotation or documentation request, send the product name, SKU, specification, and quantity through WhatsApp. Our team will confirm the matching catalog entry.</p><Link className="button button-dark" href="/contact#partnership-form">Confirm a Product <ArrowUpRight size={16} /></Link><Link className="button button-primary" href="/coa">Review COA Reports <ArrowUpRight size={16} /></Link></div></div></section>
       </main>
     </SiteLayout>
   );
