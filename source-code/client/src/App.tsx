@@ -5,7 +5,7 @@ import { Route, Router, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import About from "./pages/About";
-import { Manufacturing, Quality, Partners, ContactSpec } from "./pages/SpecPage";
+import { Manufacturing, Technology, Portfolio, Quality, Partners, ContactSpec } from "./pages/SpecPage";
 import Laboratory from "./pages/Laboratory";
 import Services from "./pages/Services";
 import Order from "./pages/Order";
@@ -19,6 +19,6 @@ import MediaAdmin from "./pages/MediaAdmin";
 import CopyAdmin from "./pages/CopyAdmin";
 
 export default function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster /><Router base="/W"><Switch><Route path="/" component={About} /><Route path="/laboratory" component={Manufacturing} /><Route path="/services" component={Quality} /><Route path="/partners" component={Partners} />
-      <Route path="/order" component={Order} /><Route path="/products" component={Products} /><Route path="/coa" component={COA} /><Route path="/feedback" component={Feedback} /><Route path="/contact" component={ContactSpec} /><Route path="/admin/inquiries" component={InquiryAdmin} /><Route path="/admin/media" component={MediaAdmin} /><Route path="/admin/copy" component={CopyAdmin} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Router></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster /><Router base="/W"><Switch><Route path="/" component={About} /><Route path="/laboratory" component={Manufacturing} /><Route path="/technology" component={Technology} /><Route path="/services" component={Quality} /><Route path="/partners" component={Partners} />
+      <Route path="/order" component={Order} /><Route path="/products" component={Products} /><Route path="/portfolio" component={Portfolio} /><Route path="/coa" component={COA} /><Route path="/feedback" component={Feedback} /><Route path="/contact" component={ContactSpec} /><Route path="/admin/inquiries" component={InquiryAdmin} /><Route path="/admin/media" component={MediaAdmin} /><Route path="/admin/copy" component={CopyAdmin} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Router></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
