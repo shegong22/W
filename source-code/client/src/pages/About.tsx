@@ -97,10 +97,6 @@ export default function About() {
                 <section className="section factory-cta-section">
           <div className="container"><div className="factory-cta"><div><strong>{copy.get("about.oem.ctaTitle", "Looking for a stable peptide factory?")}</strong><p>{copy.get("about.oem.ctaBody", "Send us your product list or OEM/ODM requirement.")}</p></div><Link className="button button-primary" href="/contact">{copy.get("about.oem.cta", "Contact Tide")} <ArrowUpRight size={16} /></Link></div></div>
         </section>
-
-
-
-        <section className="section about-feedback-bridge"><div className="container"><div className="about-feedback-bridge-copy"><span className="archive-label">{copy.get("about.feedback.kicker", "PARTNERSHIP ARCHIVE / PARTNERSHIP ARCHIVE")}</span><h2>{copy.get("about.feedback.title", "The results of collaboration")}<br /><em>{copy.get("about.feedback.titleEm", "should also be visible.")}</em></h2><p>{copy.get("about.feedback.intro", "Customer feedback and delivery records are fully archived. This section shows selected files; visit Customer Feedback for the complete archive.")}</p><Link className="button button-dark" href="/feedback">{copy.get("about.feedback.cta", "View Complete Customer Feedback")} <ArrowUpRight size={16} /></Link></div><div className="about-feedback-bridge-images"><Link href="/feedback"><img src={managed.get("about_feedback_1", "/W/assets/feedback-1_0538cdc0.jpg")} alt="Tide customer feedback archive" /></Link><Link href="/feedback"><img src={managed.get("about_delivery_3", "/W/assets/delivery-3_b513e47e.jpg")} alt="Tide delivery record archive" /></Link></div></div></section>
       </main>
     </SiteLayout>
   );
