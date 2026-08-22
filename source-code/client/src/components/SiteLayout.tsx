@@ -8,7 +8,6 @@ const navItems = [
   ["nav.about", "About TIDE", "/"],
   ["nav.manufacturing", "Manufacturing", "/laboratory"],
   ["nav.coa", "COA Reports", "/coa"],
-  ["nav.technology", "Technology", "/products"],
   ["nav.portfolio", "Portfolio", "/products"],
   ["nav.partners", "Partners", "/partners"],
   ["nav.contact", "Contact", "/contact"],
