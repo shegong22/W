@@ -1374,3 +1374,35 @@ p { text-wrap:pretty; }
   .production-flow-feature .production-flow-image img,
   .production-flow-image img { height:220px; }
 }
+
+/* Global compact pass: sections should end after their content, not reserve ornamental blank bands. */
+.section { padding:72px 0; }
+.laboratory-intro-section, .laboratory-evidence-section, .laboratory-order-section, .laboratory-guarantee-section,
+.services-intro, .service-visual-section, .premium-service-pair-section, .services-grid-section, .service-process-section {
+  padding:72px 0;
+}
+.laboratory-intro-grid { align-items:start; }
+.laboratory-intro-image { min-height:0; height:420px; }
+.laboratory-intro-image img { min-height:0; height:420px; }
+.laboratory-evidence-grid, .laboratory-order-grid { margin-top:28px; }
+.laboratory-order-card, .service-card, .premium-service-card { min-height:0; }
+.service-visual-head, .premium-service-pair-head { margin-bottom:24px; }
+.service-visual-grid { grid-template-rows:none; align-items:start; }
+.service-visual-large { grid-column:auto; grid-row:auto; }
+.service-visual-card img, .service-visual-large img { height:220px; }
+.service-visual-card figcaption { padding:15px 16px 18px; }
+.premium-service-media { height:230px; }
+.premium-service-content { padding:22px 24px 25px; }
+.premium-service-tags { margin:16px 0 20px; }
+.service-card h3 { margin-top:36px; }
+.service-process span { margin-bottom:28px; }
+.services-cta { margin-top:32px; }
+@media (max-width:900px) {
+  .section, .laboratory-intro-section, .laboratory-evidence-section, .laboratory-order-section, .laboratory-guarantee-section,
+  .services-intro, .service-visual-section, .premium-service-pair-section, .services-grid-section, .service-process-section { padding:56px 0; }
+  .laboratory-intro-image, .laboratory-intro-image img { height:340px; }
+  .service-visual-large { grid-column:auto; grid-row:auto; }
+}
+@media (max-width:560px) {
+  .laboratory-intro-image, .laboratory-intro-image img { height:280px; }
+}
