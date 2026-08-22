@@ -1488,3 +1488,15 @@ p { text-wrap:pretty; }
   .homepage-guarantee-copy .about-guarantee-grid article + article { padding-left:0; border-left:0; }
   .homepage-guarantee-image { min-height:22rem; height:22rem; }
 }
+
+/* Partner Advantage heading: fill the left column from the top while keeping the title prominent on the right. */
+.premium-service-pair-head {
+  grid-template-areas:"kicker title" "intro title";
+  align-items:start;
+}
+.premium-service-pair-head > .archive-label { align-self:start; }
+.premium-service-pair-head > h2 { align-self:start; }
+.premium-service-pair-head > p { align-self:start; margin-top:24px; }
+@media (max-width:800px) {
+  .premium-service-pair-head > p { margin-top:18px; }
+}
