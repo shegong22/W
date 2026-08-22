@@ -273,3 +273,12 @@
 - [ ] 导出可导入 GitHub 的完整项目包，包含当前开发预览实际使用图片
 - [ ] 创建图片目录和页面用途映射，说明后续替换位置
 - [ ] 验证导出包并交付当前开发预览版文件
+
+
+# Manufacturing / Partners 区块迁移
+
+- [x] Delete the Customer Feedback archive preview block from the Manufacturing page at the marked location
+- [x] Move the existing Global B2B Support / partner-region block from the Partners page into the removed Manufacturing-page position, preserving its copy, images, and CTA behavior
+- [x] Keep the standalone Feedback archive page, all other page content, routes, and inquiry links unchanged
+- [x] Run source tests, production build, and desktop/mobile regression checks for the block migration
+- [x] Refresh clean-route HTML bundle references and publish the GitHub Pages update

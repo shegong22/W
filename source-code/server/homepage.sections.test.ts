@@ -7,7 +7,7 @@ const feedbackSource = readFileSync(resolve(import.meta.dirname, "../client/src/
 const specPageSource = readFileSync(resolve(import.meta.dirname, "../client/src/pages/SpecPage.tsx"), "utf8");
 
 describe("homepage section regression", () => {
-  it("removes only the two user-marked sections", () => {
+  it("preserves the existing homepage and standalone feedback archive", () => {
     expect(aboutSource).not.toContain("production-flow-section");
     expect(aboutSource).not.toContain("capability-section");
     expect(aboutSource).not.toContain("about.capability.");
@@ -24,10 +24,18 @@ describe("homepage section regression", () => {
     expect(feedbackSource).toContain("Customer Feedback Files");
     expect(feedbackSource).toContain("Delivery Records");
     expect(feedbackSource).toContain("feedback-archive");
-    expect(specPageSource).toContain("spec-feedback-preview");
-    expect(specPageSource).toContain("feedbackPreview");
-    expect(specPageSource).toContain('feedback-1_0538cdc0.jpg');
-    expect(specPageSource).toContain('delivery-3_b513e47e.jpg');
-    expect(specPageSource).toContain('feedbackPreview />');
+    expect(specPageSource).not.toContain("spec-feedback-preview");
+    expect(specPageSource).not.toContain("feedbackPreview");
+    expect(specPageSource).not.toContain('feedback-1_0538cdc0.jpg');
+    expect(specPageSource).not.toContain('delivery-3_b513e47e.jpg');
+    expect(specPageSource).toContain("spec-partner-support-preview");
+    expect(specPageSource).toContain("partnerSupportPreview />");
+
+    const partnersSource = specPageSource.slice(specPageSource.indexOf("export function Partners()"), specPageSource.indexOf("export function ContactSpec()"));
+    expect(partnersSource).not.toContain("GLOBAL B2B SUPPORT");
+    expect(partnersSource).toContain("PARTNERSHIP PRINCIPLES");
+
+    const manufacturingSource = specPageSource.slice(specPageSource.indexOf("export function Manufacturing()"), specPageSource.indexOf("export function Technology()"));
+    expect(manufacturingSource).toContain("partnerSupportPreview />");
   });
 });
