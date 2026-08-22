@@ -5,94 +5,44 @@ import { useEffect, useState } from "react";
 import { useSiteCopy } from "@/hooks/useSiteCopy";
 
 const navItems = [
-  ["nav.about", "About", "/"],
-  ["nav.laboratory", "Manufacturing", "/laboratory"],
-  ["nav.services", "Quality Assurance", "/services"],
-  ["nav.products", "Products", "/products"],
+  ["nav.about", "About TIDE", "/"],
+  ["nav.manufacturing", "Manufacturing", "/laboratory"],
+  ["nav.quality", "Quality System", "/services"],
+  ["nav.technology", "Peptide Technology", "/products"],
+  ["nav.portfolio", "Portfolio", "/products"],
   ["nav.partners", "Global Partners", "/partners"],
-  ["nav.coa", "COA Reports", "/coa"],
-  ["nav.feedback", "Feedback", "/feedback"],
   ["nav.contact", "Contact", "/contact"],
 ] as const;
+
+type NavProps = { mobile?: boolean; onNavigate?: () => void };
+function NavigationLinks({ mobile = false, onNavigate }: NavProps) {
+  return <>{navItems.map(([key, fallback, href], index) => key === "nav.quality" ? <div className={mobile ? "mobile-nav-group" : "nav-group"} key={href}>
+    <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} href={href} onClick={onNavigate}>{fallback}</Link>
+    <Link className={mobile ? "mobile-nav-sublink" : "nav-sublink"} href="/coa" onClick={onNavigate}>COA Reports</Link>
+  </div> : <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={onNavigate}>{fallback}</Link>)}</>;
+}
 
 function BrandReveal() {
   const [visible, setVisible] = useState(false);
   const copy = useSiteCopy();
-
   useEffect(() => {
     if (window.location.pathname !== "/") return;
-    try {
-      if (window.sessionStorage.getItem("tide-logo-reveal-seen") === "1") return;
-      window.sessionStorage.setItem("tide-logo-reveal-seen", "1");
-    } catch {
-      // Continue without session persistence when storage is unavailable.
-    }
+    try { if (window.sessionStorage.getItem("tide-logo-reveal-seen") === "1") return; window.sessionStorage.setItem("tide-logo-reveal-seen", "1"); } catch { /* Continue without session persistence. */ }
     setVisible(true);
     const timer = window.setTimeout(() => setVisible(false), 3000);
     return () => window.clearTimeout(timer);
   }, []);
-
   if (!visible) return null;
-  return (
-    <div className="brand-reveal" role="status" aria-label="Tide logo reveal loading" onClick={() => setVisible(false)}>
-      <div className="brand-reveal-field" aria-hidden="true">
-        <span className="brand-drop" />
-        <span className="brand-ripple brand-ripple-a" />
-        <span className="brand-ripple brand-ripple-b" />
-        <span className="brand-ripple brand-ripple-c" />
-      </div>
-      <div className="brand-reveal-mark">
-        <img src="/assets/tide-logo_e4a10c2a.png" alt="Tide scientific institution" />
-        <span>TIDE / PEPTIDES</span>
-      </div>
-      <button className="brand-reveal-skip" type="button" onClick={(event) => { event.stopPropagation(); setVisible(false); }}>
-        {copy.get("layout.revealSkip", "Skip")}
-      </button>
-    </div>
-  );
+  return <div className="brand-reveal" role="status" aria-label="Tide logo reveal loading" onClick={() => setVisible(false)}><div className="brand-reveal-field" aria-hidden="true"><span className="brand-drop" /><span className="brand-ripple brand-ripple-a" /><span className="brand-ripple brand-ripple-b" /><span className="brand-ripple brand-ripple-c" /></div><div className="brand-reveal-mark"><img src="/assets/tide-logo_e4a10c2a.png" alt="Tide scientific institution" /><span>TIDE / PEPTIDES</span></div><button className="brand-reveal-skip" type="button" onClick={(event) => { event.stopPropagation(); setVisible(false); }}>{copy.get("layout.revealSkip", "Skip")}</button></div>;
 }
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const copy = useSiteCopy();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const items = Array.from(document.querySelectorAll<HTMLElement>(".reveal-on-scroll, .site-shell main > .section, .site-shell main > .contact-page-section"));
-    if (!("IntersectionObserver" in window)) {
-      items.forEach((item) => item.classList.add("is-visible"));
-      return;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
-    items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
-  }, []);
-
-  return <div className="site-shell">
-    <BrandReveal />
-    <header className={`site-header page-header ${scrolled ? "is-scrolled" : ""}`}>
-      <Link className="brand" href="/" aria-label="Tide Peptides home"><img className="brand-logo" src="/assets/tide-logo_e4a10c2a.png" alt="Tide Peptides" /></Link>
-      <nav className="desktop-nav" aria-label="Primary navigation">{navItems.map(([key, fallback, href], index) => <Link className="nav-link-reveal" style={{ animationDelay: `${index * 35}ms` }} key={href} href={href}>{copy.get(key, fallback)}</Link>)}</nav>
-      <div className="header-actions"><a className="header-cta" href="https://wa.me/85253929189" target="_blank" rel="noreferrer">{copy.get("layout.whatsapp", "Chat on WhatsApp")} <ArrowUpRight size={15} /></a></div>
-      <button className="mobile-menu" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Open menu">{mobileOpen ? <X /> : <Menu />}</button>
-      {mobileOpen && <nav className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([key, fallback, href], index) => <Link className="mobile-link-reveal" style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={() => setMobileOpen(false)}>{copy.get(key, fallback)}</Link>)}</nav>}
-    </header>
-    {children}
-    <footer className="site-footer"><div className="container footer-inner"><div className="brand footer-brand"><img className="brand-logo" src="/assets/tide-logo_e4a10c2a.png" alt="Tide Peptides" /></div><span>{copy.get("layout.copyright", "© 2026 Tide Peptides")}</span><span>{copy.get("layout.footerTagline", "Pure · Potent · Precise · Serving Global Research")}</span></div></footer>
-  </div>;
+  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 24); window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll); }, []);
+  useEffect(() => { const items = Array.from(document.querySelectorAll<HTMLElement>(".reveal-on-scroll, .site-shell main > .section, .site-shell main > .contact-page-section")); if (!("IntersectionObserver" in window)) { items.forEach((item) => item.classList.add("is-visible")); return; } const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); } }); }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" }); items.forEach((item) => observer.observe(item)); return () => observer.disconnect(); }, []);
+  return <div className="site-shell"><BrandReveal /><header className={`site-header page-header ${scrolled ? "is-scrolled" : ""}`}><Link className="brand" href="/" aria-label="Tide Peptides home"><img className="brand-logo" src="/assets/tide-logo_e4a10c2a.png" alt="Tide Peptides" /></Link><nav className="desktop-nav" aria-label="Primary navigation"><NavigationLinks /></nav><div className="header-actions"><a className="header-cta" href="https://wa.me/85253929189" target="_blank" rel="noreferrer">Request Partnership <ArrowUpRight size={15} /></a></div><button className="mobile-menu" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Open menu">{mobileOpen ? <X /> : <Menu />}</button>{mobileOpen && <nav className="mobile-nav" aria-label="Mobile navigation"><NavigationLinks mobile onNavigate={() => setMobileOpen(false)} /></nav>}</header>{children}<footer className="site-footer"><div className="container footer-inner"><div className="brand footer-brand"><img className="brand-logo" src="/assets/tide-logo_e4a10c2a.png" alt="Tide Peptides" /></div><span>{copy.get("layout.copyright", "© 2026 Tide Peptides")}</span><span>{copy.get("layout.footerTagline", "Pure · Potent · Precise · Serving Global Research")}</span></div></footer></div>;
 }
 
 export function PageHero({ index, total = "08", kicker, title, intro }: { index: string; total?: string; kicker: string; title: React.ReactNode; intro: string }) {

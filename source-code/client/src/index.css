@@ -1562,3 +1562,16 @@ p { text-wrap:pretty; }
   .homepage-guarantee-copy .about-guarantee-grid article { border-left:0; border-top:1px solid rgba(155,211,255,.34); }
   .homepage-guarantee-copy .about-guarantee-grid article:first-child { border-top:0; }
 }
+
+/* Premium biotech navigation: restrained hierarchy, no supplier/e-commerce treatment. */
+.desktop-nav { align-items:center; gap:clamp(14px,1.7vw,28px); }
+.nav-group { position:relative; display:flex; align-items:center; gap:7px; }
+.nav-group > .nav-link-reveal { color:#0b2345; font-weight:650; }
+.nav-sublink { color:#2d6db7; font-size:9px; font-weight:700; letter-spacing:.08em; text-decoration:none; border-left:1px solid rgba(45,109,183,.35); padding-left:7px; white-space:nowrap; }
+.nav-sublink:hover { color:#0b2345; }
+.header-cta { display:inline-flex; align-items:center; gap:9px; padding:13px 17px; border:1px solid #2d6db7; border-radius:2px; background:#0b3f8c; color:#fff; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; box-shadow:0 8px 18px rgba(11,63,140,.14); }
+.header-cta:hover { background:#0b2345; border-color:#0b2345; }
+.mobile-nav-group { display:flex; flex-direction:column; gap:5px; padding:6px 0 9px; }
+.mobile-nav-group .mobile-nav-sublink { padding-left:20px; color:#2d6db7; font-size:12px; letter-spacing:.08em; text-decoration:none; }
+@media (max-width:1150px) { .desktop-nav { gap:12px; }.nav-sublink { font-size:8px; padding-left:5px; }.header-cta { padding:11px 12px; font-size:9px; } }
+@media (max-width:900px) { .desktop-nav,.header-actions { display:none; } .mobile-nav { padding:16px 20px 22px; } .mobile-nav-group { border-top:1px solid rgba(13,36,69,.12); } .mobile-nav-group .mobile-link-reveal { padding-bottom:0; } }
