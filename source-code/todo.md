@@ -336,3 +336,10 @@
 - [x] Keep test fixture emails and backend notification configuration unchanged
 - [x] Run tests, build, and verify the public Contact page and generated route assets
 - [x] Publish the email update to GitHub Pages
+
+
+# Manufacturing 四卡片横向布局
+
+- [x] Arrange the four facility capability cards in one balanced desktop row
+- [x] Preserve readable card widths, spacing, and text hierarchy while keeping tablet/mobile responsive behavior
+- [x] Run tests, build, and desktop/mobile visual regression before publishing
