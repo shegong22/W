@@ -1662,3 +1662,14 @@ p { text-wrap:pretty; }
 .premium-partnership-form .consent { color:rgba(255,255,255,.68); }
 .premium-partnership-form .button-light { margin-top:10px; background:#9ddaff; color:#0b2345; }
 @media (max-width:900px) { .premium-partnership-form { padding:24px 20px; }.form-form-heading h2 { font-size:38px; } }
+
+/* Final contact form contrast override: remove the washed-out white panel. */
+.contact-page-section .premium-partnership-form { background:linear-gradient(145deg,#0b2345 0%,#123d79 58%,#1d6cbc 100%)!important; color:#fff; min-height:0; }
+.contact-page-section .premium-partnership-form input,.contact-page-section .premium-partnership-form textarea,.contact-page-section .premium-partnership-form select { background:rgba(5,20,43,.38)!important; color:#fff!important; border-color:rgba(157,218,255,.5)!important; }
+.contact-page-section .premium-partnership-form input:focus,.contact-page-section .premium-partnership-form textarea:focus,.contact-page-section .premium-partnership-form select:focus { outline:2px solid rgba(157,218,255,.65); outline-offset:2px; }
+.contact-page-section .premium-partnership-form label { color:#e8f5ff!important; }
+.contact-page-section .premium-partnership-form .consent { color:rgba(255,255,255,.82)!important; }
+.contact-page-section .premium-partnership-form .form-row { gap:16px; }
+.contact-page-section .premium-partnership-form textarea { min-height:126px; }
+.contact-page-section .premium-partnership-form .button-light { background:#9ddaff!important; color:#0b2345!important; }
+@media (max-width:900px) { .contact-page-section .premium-partnership-form { padding:24px 18px; } }
