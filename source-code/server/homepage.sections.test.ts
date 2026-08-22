@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 const aboutSource = readFileSync(resolve(import.meta.dirname, "../client/src/pages/About.tsx"), "utf8");
 const feedbackSource = readFileSync(resolve(import.meta.dirname, "../client/src/pages/Feedback.tsx"), "utf8");
+const contactSource = readFileSync(resolve(import.meta.dirname, "../client/src/pages/Contact.tsx"), "utf8");
 const specPageSource = readFileSync(resolve(import.meta.dirname, "../client/src/pages/SpecPage.tsx"), "utf8");
 const appSource = readFileSync(resolve(import.meta.dirname, "../client/src/App.tsx"), "utf8");
 
@@ -25,6 +26,8 @@ describe("homepage section regression", () => {
     expect(aboutSource).not.toContain("about.feedback.kicker");
     expect(aboutSource).toContain('href="/contact"');
     expect(feedbackSource).toContain("Customer Feedback Files");
+    expect(contactSource).toContain("tidepeptide@gmail.com");
+    expect(contactSource).not.toContain("bebaapicones@gmail.com");
     expect(feedbackSource).toContain("Delivery Records");
     expect(feedbackSource).toContain("feedback-archive");
     expect(appSource).toContain('function PartnersFeedback() { return <Feedback />; }');

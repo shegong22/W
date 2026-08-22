@@ -328,3 +328,11 @@
 - [x] Remove only the `/ 07` suffix from the homepage `ABOUT TIDE / 07` meta label
 - [x] Preserve all other page, COA, workflow, feedback-file, delivery-file, image, and layout content
 - [x] Run tests, build, and targeted homepage desktop/mobile verification before publishing
+
+
+# 更新网站公开联系邮箱
+
+- [x] Replace every public website display/contact link using `bebaapicones@gmail.com` with `tidepeptide@gmail.com`
+- [x] Keep test fixture emails and backend notification configuration unchanged
+- [x] Run tests, build, and verify the public Contact page and generated route assets
+- [x] Publish the email update to GitHub Pages
