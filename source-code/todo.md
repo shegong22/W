@@ -282,3 +282,27 @@
 - [x] Keep the standalone Feedback archive page, all other page content, routes, and inquiry links unchanged
 - [x] Run source tests, production build, and desktop/mobile regression checks for the block migration
 - [x] Refresh clean-route HTML bundle references and publish the GitHub Pages update
+
+
+# 回滚到上一版并修复图片识别
+
+- [x] Revert the latest B方案 content replacement and restore the previously confirmed public-site revision
+- [x] Verify `/W/assets/` image paths and representative image HTTP responses after rollback
+- [x] Run route, bundle, and desktop/mobile rendering checks without modifying image files
+- [x] Record the rollback result and confirm the restored version is live on GitHub Pages
+
+
+# 严格恢复指定版本 2a616eb
+
+- [x] Restore the public website exactly to Git commit `2a616eb`
+- [x] Do not introduce additional content, image, route, or layout changes during this restoration
+- [x] Verify the deployed commit, route responses, and representative `/W/assets/` image paths
+
+
+# Partners 页面改为 Customer Feedback 页面
+
+- [x] Replace the Partners route page content with the existing Customer Feedback page content and layout
+- [x] Remove the Global Supply / Partnership page interface from the Partners route without deleting feedback assets
+- [x] Keep the standalone Feedback route and all other pages unchanged
+- [x] Run tests, build, desktop/mobile route checks, and image-resource verification
+- [x] Publish the Partners route replacement to GitHub Pages

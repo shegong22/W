@@ -19,3 +19,8 @@ The Partners page retains its `Partnership Principles` section and no longer ren
 Commit `0c3f646` was pushed to `shegong22/W` and the GitHub Pages workflow completed successfully. The live `/laboratory/`, `/partners/`, and `/feedback/` routes each returned HTTP 200 and referenced the new `index-CbROVQzU.js` bundle.
 
 Live DOM verification found on `/laboratory/`: zero `CUSTOMER FEEDBACK / FIELD NOTES` markers, one `GLOBAL B2B SUPPORT` block, one `A clear partner path across markets.` heading, and one Manufacturing Workflow marker. On `/partners/`, the moved Global B2B Support block and heading were absent, while `PARTNERSHIP PRINCIPLES` remained. The standalone Feedback route still served the current bundle and returned HTTP 200.
+
+
+## Partners route as Customer Feedback — 2026-08-23
+
+The Partners route now renders the existing Customer Feedback page component directly. Desktop and 390px mobile renders show the Customer Feedback hero, partnership note, Customer Feedback Files grid, and original feedback images in the expected responsive layout. The former Global Supply / Partnership interface is absent from the Partners route. The standalone `/feedback/` route remains mapped to the same Feedback component.
