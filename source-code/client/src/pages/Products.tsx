@@ -22,8 +22,7 @@ const productPhotos: ProductPhoto[] = [
   { image: "ghk-cu-cu100-a.png", name: "GHK-CU", sku: "CU100", label: "GHK-CU / CU100" },
   { image: "retatrutide-rt40.png", name: "Retatrutide", sku: "RT40", label: "Retatrutide / RT40" },
   { image: "tirzepatide-tr10-green.png", name: "Tirzepatide", sku: "TR10", label: "Tirzepatide / TR10" },
-  { image: "ghk-cu-cu100-b.png", name: "GHK-CU", sku: "CU100", label: "GHK-CU / CU100" },
-  { image: "ghk-cu-cu100-c.png", name: "GHK-CU", sku: "CU100", label: "GHK-CU / CU100" },
+
   { image: "mots-c-ms40.png", name: "MOTS-C", sku: "MS40", label: "MOTS-C / MS40" },
   { image: "nad-plus-nad500.png", name: "NAD+", sku: "NJ500", label: "NAD+ / NAD500" },
   { image: "retatrutide-rt10-blue.png", name: "Retatrutide", sku: "RT10", label: "Retatrutide / RT10" },
