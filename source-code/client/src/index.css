@@ -1232,3 +1232,10 @@ p { text-wrap:pretty; }
 .laboratory-order-grid { margin-top:40px; }
 .laboratory-guarantee-grid { margin-top:52px; }
 @media (max-width:560px) { .laboratory-intro-section, .laboratory-evidence-section, .laboratory-order-section, .laboratory-guarantee-section { padding:76px 0; } }
+
+/* Homepage spacing correction: keep related facility sections visually continuous. */
+.facility-profile-section, .about-peptide-visuals, .client-visit-section, .production-flow-section { padding:78px 0; }
+.facility-profile-copy { padding-top:20px; }
+.about-visual-head { margin-bottom:24px; }
+.production-flow-head { margin-bottom:26px; }
+@media (max-width:800px) { .facility-profile-section, .about-peptide-visuals, .client-visit-section, .production-flow-section { padding:64px 0; } .facility-profile-copy { padding-top:12px; } }
