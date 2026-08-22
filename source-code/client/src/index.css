@@ -1406,3 +1406,33 @@ p { text-wrap:pretty; }
 @media (max-width:560px) {
   .laboratory-intro-image, .laboratory-intro-image img { height:280px; }
 }
+
+/* Laboratory Evidence: keep all visual records in one continuous card grid. */
+.laboratory-evidence-grid {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:none;
+  align-items:start;
+  gap:14px;
+  margin-top:28px;
+}
+.laboratory-evidence-feature {
+  grid-column:auto;
+  grid-row:auto;
+}
+.laboratory-evidence-card img,
+.laboratory-evidence-feature img {
+  height:230px;
+  min-height:0;
+}
+.laboratory-evidence-card figcaption { padding:15px 17px 18px; }
+@media (max-width:980px) {
+  .laboratory-evidence-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .laboratory-evidence-feature { grid-column:auto; }
+  .laboratory-evidence-card img,
+  .laboratory-evidence-feature img { height:210px; }
+}
+@media (max-width:560px) {
+  .laboratory-evidence-grid { grid-template-columns:1fr; }
+  .laboratory-evidence-card img,
+  .laboratory-evidence-feature img { height:240px; }
+}
