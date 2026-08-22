@@ -1626,3 +1626,13 @@ p { text-wrap:pretty; }
 .spec-cta h3 { margin:7px 0 0; color:#0b2345; font-family:var(--display-font, Georgia,serif); font-size:clamp(25px,2.6vw,42px); line-height:1; }
 .spec-partner-card { width:100%; }
 @media (max-width:900px) { .spec-page-content { padding:52px 0; }.spec-block-head { grid-template-columns:42px minmax(0,1fr); gap:14px; }.spec-card-grid { grid-template-columns:1fr; }.spec-card { min-height:0; padding:22px; }.spec-process-line { grid-template-columns:1fr; gap:0; }.spec-process-line > div,.spec-process-line > div:first-child { min-height:0; padding:14px 0 18px 28px; border-left:1px solid rgba(45,109,183,.28); border-top:0; }.spec-process-line > div:first-child { padding-top:0; }.spec-process-line b { left:8px; right:auto; top:auto; bottom:-2px; transform:rotate(90deg); }.spec-cta { align-items:flex-start; flex-direction:column; } }
+
+/* Manufacturing workflow: connected visual stages. */
+.spec-process-line:has(.spec-process-stage img) { grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; }
+.spec-process-stage { min-width:0; padding:0!important; border-left:1px solid rgba(45,109,183,.26)!important; }
+.spec-process-stage:first-child { border-left:0!important; }
+.spec-process-stage img { display:block; width:100%; height:150px; margin-bottom:16px; object-fit:cover; border:1px solid rgba(11,35,69,.13); }
+.spec-process-stage span { padding:0 14px; }
+.spec-process-stage strong { padding:0 14px; max-width:none; }
+.spec-process-stage b { top:182px; right:2px; }
+@media (max-width:900px) { .spec-process-line:has(.spec-process-stage img) { grid-template-columns:1fr; gap:0; }.spec-process-stage,.spec-process-stage:first-child { border-left:0!important; border-top:1px solid rgba(45,109,183,.24)!important; padding:18px 0!important; }.spec-process-stage:first-child { border-top:0!important; padding-top:0!important; }.spec-process-stage img { height:190px; margin-bottom:14px; }.spec-process-stage span,.spec-process-stage strong { padding:0; }.spec-process-stage b { top:auto; right:auto; left:50%; bottom:-14px; transform:rotate(90deg); } }
