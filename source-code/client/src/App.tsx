@@ -18,7 +18,10 @@ import InquiryAdmin from "./pages/InquiryAdmin";
 import MediaAdmin from "./pages/MediaAdmin";
 import CopyAdmin from "./pages/CopyAdmin";
 
+function PartnersFeedback() { return <Feedback titleOverride="Feedback Files" />; }
+function FeedbackRoute() { return <Feedback />; }
+
 export default function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster /><Router base="/W"><Switch><Route path="/" component={About} /><Route path="/laboratory" component={Manufacturing} /><Route path="/technology" component={Technology} /><Route path="/services" component={Quality} /><Route path="/partners" component={Feedback} />
-      <Route path="/order" component={Order} /><Route path="/products" component={Products} /><Route path="/portfolio" component={Portfolio} /><Route path="/coa" component={COA} /><Route path="/feedback" component={Feedback} /><Route path="/contact" component={Contact} /><Route path="/admin/inquiries" component={InquiryAdmin} /><Route path="/admin/media" component={MediaAdmin} /><Route path="/admin/copy" component={CopyAdmin} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Router></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster /><Router base="/W"><Switch><Route path="/" component={About} /><Route path="/laboratory" component={Manufacturing} /><Route path="/technology" component={Technology} /><Route path="/services" component={Quality} /><Route path="/partners" component={PartnersFeedback} />
+      <Route path="/order" component={Order} /><Route path="/products" component={Products} /><Route path="/portfolio" component={Portfolio} /><Route path="/coa" component={COA} /><Route path="/feedback" component={FeedbackRoute} /><Route path="/contact" component={Contact} /><Route path="/admin/inquiries" component={InquiryAdmin} /><Route path="/admin/media" component={MediaAdmin} /><Route path="/admin/copy" component={CopyAdmin} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Router></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }

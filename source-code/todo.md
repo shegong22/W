@@ -306,3 +306,10 @@
 - [x] Keep the standalone Feedback route and all other pages unchanged
 - [x] Run tests, build, desktop/mobile route checks, and image-resource verification
 - [x] Publish the Partners route replacement to GitHub Pages
+
+
+# Partners 主标题更新为 Feedback Files
+
+- [x] Change only the Partners-route Customer Feedback hero title to `Feedback Files`
+- [x] Preserve all other copy, images, archive content, layout, routes, and admin integration
+- [x] Run tests, build, and targeted desktop/mobile verification before publishing
