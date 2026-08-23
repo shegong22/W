@@ -45,12 +45,12 @@ export default function Products() {
   return (
     <SiteLayout>
       <main>
-        <section className="page-hero products-hero">
+        <section className="page-hero page-hero-animated products-hero">
           <div className="container page-hero-inner">
             <div className="page-hero-copy">
-              <span className="archive-label">PRODUCT ARCHIVE / PRODUCT ARCHIVE</span>
-              <h1>Product photos,<br /><em>matched to the catalog.</em></h1>
-              <p>Browse the photographed batches and identify each product by the formal name and SKU code used in the price list. Prices are intentionally not displayed.</p>
+              <span className="archive-label hero-reveal hero-delay-2">PRODUCT ARCHIVE / PRODUCT ARCHIVE</span>
+              <h1 className="hero-title-reveal">Product photos,<br /><em>matched to the catalog.</em></h1>
+              <p className="hero-reveal hero-delay-4">Browse the photographed batches and identify each product by the formal name and SKU code used in the price list. Prices are intentionally not displayed.</p>
             </div>
             <div className="products-hero-note"><span>30</span><strong>catalogued<br />photos</strong><small>NAME + SKU MATCHING</small></div>
           </div>
