@@ -32,7 +32,7 @@ const productPhotos: ProductPhoto[] = [
   { image: "semax-xa10-white.png", name: "Semax", sku: "XA10", label: "Semax / XA10" },
   { image: "thymosin-alpha-1-ta10-b.png", name: "Thymosin Alpha-1", sku: "TA10", label: "Thymosin Alpha-1 / TA10" },
   { image: "retatrutide-rt10-blue-2.png", name: "Retatrutide", sku: "RT10", label: "Retatrutide / RT10" },
-  { image: "retatrutide-rt40-white.png", name: "Retatrutide", sku: "RT40", label: "Retatrutide / RT40" },
+  { image: "retatrutide-rt40-white.png", name: "Tirzepatide", sku: "TR40", label: "Tirzepatide / TR40" },
   { image: "retatrutide-rt10-orange.png", name: "Retatrutide", sku: "RT10", label: "Retatrutide / RT10" },
   { image: "tb500-tb5.png", name: "TB500 (Thymosin B4 Acetate)", sku: "TB5", label: "TB500 / TB5" },
   { image: "5amino-mq-50am.png", name: "5Amino/MQ", sku: "50AM", label: "5Amino/MQ / 50AM" },
