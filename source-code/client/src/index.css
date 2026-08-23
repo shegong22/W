@@ -36,7 +36,7 @@
 /* Multi-page chapter system: each route gets a distinct high-contrast page hero and clear content body. */
 .page-header { background:#0b2345; color:#f5f8fc; position:relative; } .page-header .brand-logo { filter:brightness(0) invert(1); opacity:.96; }
 .page-header.is-scrolled { background:#0b2345; color:#f5f8fc; }
-.page-hero { background:linear-gradient(135deg,#0b2345 0%,#163f73 62%,#2d6db7 100%); color:#f5f8fc; min-height:480px; display:flex; align-items:flex-end; padding:120px 0 72px; position:relative; overflow:hidden; }
+.page-hero { background:linear-gradient(135deg,#0b2345 0%,#163f73 62%,#2d6db7 100%); color:#f5f8fc; min-height:400px; display:flex; align-items:flex-end; padding:90px 0 52px; position:relative; overflow:hidden; }
 .page-hero:after { content:""; position:absolute; width:580px; height:580px; border:1px solid rgba(196,220,246,.24); border-radius:50%; right:-180px; bottom:-250px; box-shadow:0 0 0 26px rgba(196,220,246,.06),0 0 0 54px rgba(196,220,246,.04); }
 .page-hero-inner { position:relative; z-index:1; display:grid; grid-template-columns:90px 1fr; gap:24px; }
 .page-hero .hero-index { position:static; color:#c4dcf6; font-size:12px; } .page-hero .archive-label { font-size:11px; }
@@ -65,7 +65,7 @@
 .coa-request { margin-top:55px; padding:22px; background:#0b2345; color:#f5f8fc; display:flex; align-items:center; gap:15px; }.coa-request > svg { color:#8db9eb; }.coa-request div { margin-right:auto; }.coa-request strong { font:26px/1 "DM Serif Display",Georgia,serif; font-weight:400; }.coa-request p { color:#c4dcf6; margin:8px 0 0; font-size:11px; }
 .feedback-page-section { background:#f5f8fc; min-height:760px; }
 .contact-page-section { padding-top:110px; }
-@media (max-width:800px) { .home-hero:after { background:linear-gradient(90deg,rgba(245,248,252,.86) 0%,rgba(245,248,252,.78) 61%,rgba(245,248,252,.18) 100%); } .home-hero .hero-lead { color:#0b2345; text-shadow:0 1px 10px rgba(245,248,252,.45); } .home-hero .hero-copy { max-width:94%; } .page-hero { min-height:430px; padding:110px 0 55px; }.page-hero-inner { grid-template-columns:44px 1fr; gap:14px; }.page-hero h1 { font-size:3.6rem; }.chapter-grid,.capability-grid { grid-template-columns:1fr 1fr; }.chapter-grid a:nth-child(2n),.capability-grid > div:nth-child(2n) { border-right:1px solid var(--border); }.chapter-grid a:nth-child(3),.chapter-grid a:nth-child(4) { border-top:1px solid var(--border); }.capability-grid > div:nth-child(3),.capability-grid > div:nth-child(4) { border-top:1px solid var(--border); }.process-row { flex-wrap:wrap; gap:14px; }.coa-intro-note { align-items:flex-start; flex-wrap:wrap; }.coa-intro-note a { margin-left:39px; }.coa-request { align-items:flex-start; flex-wrap:wrap; }.coa-request div { width:calc(100% - 40px); }.coa-request .button { margin-left:40px; }.contact-page-section { padding-top:75px; } }
+@media (max-width:800px) { .home-hero:after { background:linear-gradient(90deg,rgba(245,248,252,.86) 0%,rgba(245,248,252,.78) 61%,rgba(245,248,252,.18) 100%); } .home-hero .hero-lead { color:#0b2345; text-shadow:0 1px 10px rgba(245,248,252,.45); } .home-hero .hero-copy { max-width:94%; } .page-hero { min-height:340px; padding:80px 0 44px; }.page-hero-inner { grid-template-columns:44px 1fr; gap:14px; }.page-hero h1 { font-size:3.6rem; }.chapter-grid,.capability-grid { grid-template-columns:1fr 1fr; }.chapter-grid a:nth-child(2n),.capability-grid > div:nth-child(2n) { border-right:1px solid var(--border); }.chapter-grid a:nth-child(3),.chapter-grid a:nth-child(4) { border-top:1px solid var(--border); }.capability-grid > div:nth-child(3),.capability-grid > div:nth-child(4) { border-top:1px solid var(--border); }.process-row { flex-wrap:wrap; gap:14px; }.coa-intro-note { align-items:flex-start; flex-wrap:wrap; }.coa-intro-note a { margin-left:39px; }.coa-request { align-items:flex-start; flex-wrap:wrap; }.coa-request div { width:calc(100% - 40px); }.coa-request .button { margin-left:40px; }.contact-page-section { padding-top:75px; } }
 
 /* Full feedback archive: show every uploaded image at natural ratio; never hide customer evidence behind fixed-height crops. */
 .feedback-page-section { background:#f5f8fc; }
@@ -703,7 +703,7 @@ body, .site-shell { background:#f4f8fd; color:#0b2345; }
 }
 
 /* Inner-page Tide blue system: every chapter shares the same blue-white manufacturer language. */
-.page-hero { min-height:500px; background:linear-gradient(135deg,#082e72 0%,#1260ba 60%,#2d83d4 100%); }
+.page-hero { min-height:400px; background:linear-gradient(135deg,#082e72 0%,#1260ba 60%,#2d83d4 100%); }
 .page-hero:before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(8,46,114,.28),transparent 70%); pointer-events:none; }
 .page-hero-inner { z-index:2; }
 .page-hero h1 { font-family:"DM Serif Display",Georgia,serif; font-size:clamp(3.4rem,6.2vw,6.5rem); letter-spacing:-.06em; }
