@@ -946,7 +946,7 @@ button:disabled { opacity:.6; cursor:wait; }
 @media (max-width:540px) { .coa-sort-note { display:block; margin-top:9px; }.coa-archive-head { align-items:flex-start; flex-direction:column; gap:12px; }.coa-photo-grid { grid-template-columns:1fr; gap:14px; }.coa-photo-meta { padding:14px 15px 16px; } }
 
 /* Tide Peptide Laboratory page */
-.laboratory-intro-section,.laboratory-evidence-section,.laboratory-order-section,.laboratory-guarantee-section { background:#f5f8fc; }
+.laboratory-intro-section,.laboratory-evidence-section,.laboratory-order-section,.laboratory-guarantee-section { background:#f5f8fc; }.laboratory-intro-section { padding-top:48px; }
 .laboratory-intro-grid { display:grid; grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr); gap:clamp(38px,7vw,110px); align-items:center; }
 .laboratory-intro-image { background:#dce8f4; min-height:clamp(380px,50vw,670px); overflow:hidden; }
 .laboratory-intro-image img { width:100%; height:100%; min-height:inherit; display:block; object-fit:cover; }
@@ -1613,7 +1613,7 @@ p { text-wrap:pretty; }
 @media (max-width:900px) { .spec-page-content .spec-card-grid:has(.spec-partner-card) { grid-template-columns:1fr; gap:16px; }.spec-page-content .spec-partner-card img { height:220px; }.spec-page-content .spec-partner-card figcaption { padding:18px; } }
 
 /* Unified spec pages: same editorial biotech rhythm as the homepage. */
-.spec-page-content { padding:clamp(56px,7vw,104px) 0; background:#f5f7fb; }
+.spec-page-content { padding:clamp(28px,3.5vw,48px) 0; background:#f5f7fb; }
 .spec-block { padding:0 0 clamp(52px,7vw,96px); }
 .spec-block + .spec-block { padding-top:clamp(48px,6vw,88px); }
 .spec-block-head { display:grid; grid-template-columns:78px minmax(0,1fr); gap:clamp(18px,3vw,48px); align-items:start; margin-bottom:30px; }
