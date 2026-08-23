@@ -39,6 +39,8 @@ const productPhotos: ProductPhoto[] = [
   { image: "tesamorelin-tsm10.png", name: "Tesamorelin", sku: "TSM10", label: "Tesamorelin / TSM10" },
   { image: "tirzepatide-tr30-blue.png", name: "Tirzepatide", sku: "TR30", label: "Tirzepatide / TR30" },
   { image: "retatrutide-rt30.png", name: "Retatrutide", sku: "RT30", label: "Retatrutide / RT30" },
+  { image: "ghk-cu-cu100-b.png", name: "GHK-CU", sku: "CU100", label: "GHK-CU / CU100" },
+  { image: "ghk-cu-cu100-c.png", name: "GHK-CU", sku: "CU100", label: "GHK-CU / CU100" },
 ];
 
 export default function Products() {
