@@ -26,7 +26,7 @@ describe("homepage section regression", () => {
     expect(aboutSource).not.toContain("about.feedback.kicker");
     expect(aboutSource).toContain('href="/contact"');
     expect(feedbackSource).toContain("Customer Feedback Files");
-    expect(contactSource).toContain("tidepeptide@gmail.com");
+    expect(contactSource).toContain("tidepeptide@outlook.com");
     expect(contactSource).not.toContain("bebaapicones@gmail.com");
     expect(feedbackSource).toContain("Delivery Records");
     expect(feedbackSource).toContain("feedback-archive");
