@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
 import SiteLayout from "@/components/SiteLayout";
+import { productCatalog } from "@/data/productCatalog";
 
 type ProductPhoto = {
   image: string;
@@ -66,6 +67,27 @@ export default function Products() {
                 </figure>
               ))}
             </div>
+          </div>
+        </section>
+        <section className="section products-catalog-section">
+          <div className="container">
+            <div className="products-catalog-head">
+              <div>
+                <span className="archive-label">CATALOG INDEX / 02</span>
+                <h2>Product names,<br /><em>SKU codes.</em></h2>
+              </div>
+              <p>{productCatalog.length} catalogued products with the product names and SKU codes used in the Tide price list. Send the exact SKU for a quotation, specification confirmation, or COA documentation request.</p>
+            </div>
+            <ul className="products-catalog-list">
+              {productCatalog.map((item, index) => (
+                <li key={item.name}>
+                  <span className="products-catalog-item-index">{String(index + 1).padStart(2, "0")} / SKU INDEX</span>
+                  <strong>{item.name}</strong>
+                  <span className="products-catalog-skus">{item.skus.map((sku) => (<span key={sku}>{sku}</span>))}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="products-catalog-note">Cannot find a model? Send the peptide sequence, specification, or OEM/ODM requirement and our team will confirm availability, documentation and lead time.</p>
           </div>
         </section>
         <section className="section products-cta-section"><div className="container products-cta"><div><span className="archive-label">PRODUCT CONFIRMATION</span><h2>Have a model in mind?<br /><em>Send the exact SKU.</em></h2></div><div><p>For a quotation or documentation request, send the product name, SKU, specification, and quantity through WhatsApp. Our team will confirm the matching catalog entry.</p><Link className="button button-dark" href="/contact#partnership-form">Confirm a Product <ArrowUpRight size={16} /></Link><Link className="button button-primary" href="/coa">Review COA Reports <ArrowUpRight size={16} /></Link></div></div></section>
