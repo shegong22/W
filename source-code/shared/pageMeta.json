@@ -1,0 +1,63 @@
+{
+  "siteUrl": "https://tide-peptide.com",
+  "siteName": "TIDE Peptide Laboratory",
+  "defaultImage": "/assets/tide-apple-touch-icon.png",
+  "logo": "/assets/tide-logo_e4a10c2a.png",
+  "pages": [
+    {
+      "path": "/",
+      "title": "TIDE Peptide Laboratory | China Peptide Manufacturer & OEM/ODM Partner",
+      "description": "Guangzhou-based peptide manufacturing partner for global B2B customers. Synthesis, purification, analytical testing, batch documentation and COA reports."
+    },
+    {
+      "path": "/products",
+      "title": "Peptide Product Archive: Names, SKUs & Batch Photos | TIDE",
+      "description": "Browse photographed peptide batches and identify every product by the formal name and SKU code used in the Tide price list."
+    },
+    {
+      "path": "/coa",
+      "title": "COA Reports & Laboratory Test Files | TIDE Peptide",
+      "description": "Freedom Certificate of Analysis and Janoshik test reports for Tide peptide batches, archived by laboratory and report format."
+    },
+    {
+      "path": "/laboratory",
+      "title": "Peptide Manufacturing Facility in Guangzhou, China | TIDE",
+      "description": "Inside Tide's 72,000 square metre peptide facility: synthesis, purification, analytical instrumentation, quality release and packaging coordination."
+    },
+    {
+      "path": "/technology",
+      "title": "Peptide Technology & Custom Synthesis Capability | TIDE",
+      "description": "Peptide model coordination, sequence and modification requirements, process engineering and documented production workflows for research customers."
+    },
+    {
+      "path": "/services",
+      "title": "Quality Assurance, Testing & Documentation Support | TIDE",
+      "description": "Analytical review, batch traceability and COA documentation support for every peptide batch produced for international B2B customers."
+    },
+    {
+      "path": "/portfolio",
+      "title": "Peptide Portfolio & Custom Requirements | TIDE",
+      "description": "Review peptide product categories, custom sequence requirements and documentation-led B2B collaboration options."
+    },
+    {
+      "path": "/partners",
+      "title": "Global Peptide Supply Partnership | TIDE",
+      "description": "Tide supports customers worldwide with stable manufacturing, documented milestones, logistics coordination and long-term cooperation."
+    },
+    {
+      "path": "/order",
+      "title": "Order & Shipping Process: Payment to Delivery | TIDE",
+      "description": "Every order milestone is documented: proforma invoice, payment confirmation, processing, packaging, tracking and final delivery."
+    },
+    {
+      "path": "/feedback",
+      "title": "Customer Feedback & Facility Visit Records | TIDE",
+      "description": "Client visits, production process observation, product review records and partner feedback from Tide's international customers."
+    },
+    {
+      "path": "/contact",
+      "title": "Contact TIDE | Request a Peptide Quotation or Partnership",
+      "description": "Send your product, SKU, specification or OEM/ODM requirement. Our Guangzhou peptide team replies through WhatsApp or email."
+    }
+  ]
+}
