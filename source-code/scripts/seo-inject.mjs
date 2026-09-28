@@ -127,6 +127,7 @@ function renderPage(template, page) {
 function sitemap(pages) {
   const today = new Date().toISOString().slice(0, 10);
   const entries = pages
+    .filter((page) => !page.noindex && !page.hidden)
     .map((page) =>
       [
         "  <url>",
@@ -171,6 +172,15 @@ const template = fs.readFileSync(templatePath, "utf8");
 const written = [];
 
 for (const page of meta.pages) {
+  if (page.hidden) {
+    const stale = path.join(repoRoot, fileFor(page.path));
+    if (fs.existsSync(stale)) {
+      fs.rmSync(stale);
+      written.push(`removed ${path.relative(repoRoot, stale).split(path.sep).join("/")}`);
+    }
+    continue;
+  }
+
   const html = renderPage(template, page);
   const targets = [path.join(repoRoot, fileFor(page.path))];
   if (page.path === "/") targets.push(path.join(repoRoot, "404.html"));

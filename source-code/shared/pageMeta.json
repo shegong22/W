@@ -16,6 +16,7 @@
     },
     {
       "path": "/coa",
+      "hidden": true,
       "title": "COA Reports & Laboratory Test Files | TIDE Peptide",
       "description": "Freedom Certificate of Analysis and Janoshik test reports for Tide peptide batches, archived by laboratory and report format."
     },

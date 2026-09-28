@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 import pageMeta from "@shared/pageMeta.json";
 
-type PageMeta = { path: string; title: string; description: string };
+type PageMeta = { path: string; title: string; description: string; noindex?: boolean };
 
 const pages = pageMeta.pages as PageMeta[];
 const siteUrl = pageMeta.siteUrl as string;

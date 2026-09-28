@@ -166,6 +166,10 @@ const profileDir = fs.mkdtempSync(path.join(os.tmpdir(), "tide-prerender-"));
 const results = [];
 
 for (const page of meta.pages) {
+  if (page.hidden) {
+    results.push(`${page.path} hidden -> skipped`);
+    continue;
+  }
   const routePath = page.path === "/" ? "/" : `${page.path}/`;
   const target = targetFor(page.path);
   try {
@@ -188,14 +192,21 @@ for (const page of meta.pages) {
   }
 }
 
-// The 404 page reuses the home shell but keeps its own noindex head.
-const homeHtml = fs.readFileSync(path.join(repoRoot, "index.html"), "utf8");
-const homeMarkup = extractRootMarkup(homeHtml);
-if (homeMarkup) {
+// 404.html gets the real "not found" markup so hidden or mistyped URLs never flash the home page.
+try {
+  const dom = await capture(chrome, "/tide-page-not-found/", profileDir);
+  const markup = extractRootMarkup(dom);
   const notFoundPath = path.join(repoRoot, "404.html");
-  const notFoundHtml = fs.readFileSync(notFoundPath, "utf8");
-  const updated = replaceRoot(notFoundHtml, homeMarkup);
-  if (updated) fs.writeFileSync(notFoundPath, updated, "utf8");
+  if (markup) {
+    const notFoundHtml = fs.readFileSync(notFoundPath, "utf8");
+    const updated = replaceRoot(notFoundHtml, markup);
+    if (updated) {
+      fs.writeFileSync(notFoundPath, updated, "utf8");
+      results.push("404.html -> not found markup");
+    }
+  }
+} catch (error) {
+  results.push(`404.html skipped: ${error.message.split("\n")[0]}`);
 }
 
 server.close();
