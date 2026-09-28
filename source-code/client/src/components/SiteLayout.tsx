@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSiteCopy } from "@/hooks/useSiteCopy";
+import { showCoaReports } from "@/config/siteFeatures";
 
 const navItems = [
   ["nav.about", "About TIDE", "/"],
@@ -13,9 +14,12 @@ const navItems = [
   ["nav.contact", "Contact", "/contact"],
 ] as const;
 
+// COA Reports can be hidden temporarily without deleting the page or the route.
+const visibleNavItems = showCoaReports ? navItems : navItems.filter(([key]) => key !== "nav.coa");
+
 type NavProps = { mobile?: boolean; onNavigate?: () => void };
 function NavigationLinks({ mobile = false, onNavigate }: NavProps) {
-  return <>{navItems.map(([key, fallback, href], index) => <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={onNavigate}>{fallback}</Link>)}</>;
+  return <>{visibleNavItems.map(([key, fallback, href], index) => <Link className={mobile ? "mobile-link-reveal" : "nav-link-reveal"} style={{ animationDelay: `${index * 35}ms` }} key={href} href={href} onClick={onNavigate}>{fallback}</Link>)}</>;
 }
 
 function BrandReveal() {

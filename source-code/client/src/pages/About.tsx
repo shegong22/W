@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, BadgeCheck, Boxes, FileCheck2, Glo
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SiteLayout, { SectionHead } from "@/components/SiteLayout";
+import { showCoaReports } from "@/config/siteFeatures";
 import { useManagedMedia } from "@/hooks/useManagedMedia";
 import { useSiteCopy } from "@/hooks/useSiteCopy";
 
@@ -44,7 +45,7 @@ export default function About() {
               <span className="archive-label">{slideKicker}</span>
               <h1>{copy.get(`about.hero.${activeSlide + 1}.title`, slideTitleFallback)}</h1>
               <p>{slideBody}</p>
-              {slide.href.startsWith("http") ? <a className="button button-light" href={slide.href} target="_blank" rel="noreferrer">{slideAction} <ArrowUpRight size={16} /></a> : <Link className="button button-light" href={slide.href}>{slideAction} <ArrowUpRight size={16} /></Link>}
+              {slide.href === "/coa" && !showCoaReports ? null : slide.href.startsWith("http") ? <a className="button button-light" href={slide.href} target="_blank" rel="noreferrer">{slideAction} <ArrowUpRight size={16} /></a> : <Link className="button button-light" href={slide.href}>{slideAction} <ArrowUpRight size={16} /></Link>}
             </div>
             <div className="tide-interactive-controls">
               <div className="tide-slide-count"><strong>{String(activeSlide + 1).padStart(2, "0")}</strong><span>/ {String(homeSlides.length).padStart(2, "0")}</span><i style={{ width: `${((activeSlide + 1) / homeSlides.length) * 100}%` }} /></div>
