@@ -931,19 +931,36 @@ button:disabled { opacity:.6; cursor:wait; }
 
 /* COA visual archive */
 .coa-sort-note { color:#8294a5; font-size:10px; letter-spacing:.12em; }
-.coa-archive { margin-top:clamp(4px,1vw,8px); padding-top:clamp(6px,1vw,10px); border-top:1px solid rgba(11,35,69,.14); }
-.coa-archive-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:30px; }
+.coa-archive { margin-top:clamp(18px,3vw,40px); padding-top:clamp(14px,2.4vw,30px); border-top:1px solid rgba(11,35,69,.14); }
+.coa-archive-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:26px; }
 .coa-archive-head h2 { color:#0b2345; font:400 clamp(2.5rem,5vw,5rem)/.94 "DM Serif Display",Georgia,serif; letter-spacing:-.055em; margin:14px 0 0; }
 .coa-archive-head .archive-count { color:#2d6db7; font-size:10px; font-weight:800; letter-spacing:.14em; }
+.coa-archive--category .coa-archive-head { align-items:flex-start; }
+.coa-archive--category .coa-archive-head h2 { font-size:clamp(1.9rem,3.1vw,3rem); letter-spacing:-.045em; margin-top:12px; }
+.coa-archive-lead { margin:12px 0 0; max-width:64ch; color:#52677e; font-size:12.5px; line-height:1.7; }
+.coa-archive-facts { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid rgba(11,35,69,.16); border-bottom:1px solid rgba(11,35,69,.16); margin:0 0 clamp(24px,3.4vw,46px); }
+.coa-archive-facts > div { padding:20px 22px 22px; border-right:1px solid rgba(11,35,69,.12); }
+.coa-archive-facts > div:last-child { border-right:0; }
+.coa-archive-facts strong { display:block; color:#0b2345; font:400 clamp(1.15rem,1.9vw,1.6rem)/1.1 "DM Serif Display",Georgia,serif; letter-spacing:-.02em; }
+.coa-archive-facts span { display:block; margin-top:11px; color:#627487; font-size:9px; font-weight:800; letter-spacing:.16em; }
 .coa-photo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; width:100%; contain:layout paint; }
-.coa-photo-card { display:block; min-width:0; background:#fff; border:1px solid rgba(11,35,69,.13); overflow:hidden; color:inherit; transition:transform .25s ease, box-shadow .25s ease; }
-.coa-photo-card:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(17,55,100,.12); }
-.coa-photo-image { aspect-ratio:3 / 4; background:#e9eef5; overflow:hidden; }
-.coa-photo-image img { width:100%; height:100%; display:block; object-fit:contain; }
-.coa-photo-meta { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 17px 18px; color:#2d6db7; font-size:10px; font-weight:800; letter-spacing:.12em; }
-.coa-photo-meta svg { flex:none; }
+.coa-photo-card { display:flex; flex-direction:column; min-width:0; background:#fff; border:1px solid rgba(11,35,69,.13); overflow:hidden; color:inherit; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.coa-photo-card:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(17,55,100,.14); border-color:rgba(45,109,183,.4); }
+.coa-photo-image { aspect-ratio:3 / 4; background:#eef3f9; overflow:hidden; }
+.coa-photo-image img { width:100%; height:100%; display:block; object-fit:contain; transition:transform .4s ease; }
+.coa-photo-card:hover .coa-photo-image img { transform:scale(1.015); }
+.coa-photo-meta { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:16px 17px 18px; border-top:1px solid rgba(11,35,69,.1); }
+.coa-photo-copy { min-width:0; }
+.coa-photo-ref { display:flex; align-items:center; gap:5px; color:#2d6db7; font-size:9px; font-weight:800; letter-spacing:.16em; }
+.coa-photo-ref svg { flex:none; }
+.coa-photo-name { display:block; margin:9px 0 0; color:#0b2345; font:400 1.06rem/1.22 "DM Serif Display",Georgia,serif; letter-spacing:-.01em; }
+.coa-photo-facts { display:block; margin:9px 0 0; color:#627487; font-size:9px; font-weight:700; letter-spacing:.1em; }
+.coa-purity-chip { flex:none; padding-left:14px; border-left:1px solid rgba(11,35,69,.14); text-align:right; }
+.coa-purity-chip b { display:block; color:#0b3f8c; font:400 1.12rem/1 "DM Serif Display",Georgia,serif; }
+.coa-purity-chip i { display:block; margin-top:7px; color:#8294a5; font-size:8px; font-style:normal; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+@media (max-width:1000px) { .coa-archive-facts { grid-template-columns:repeat(2,minmax(0,1fr)); } .coa-archive-facts > div:nth-child(2n) { border-right:0; } .coa-archive-facts > div:nth-child(-n+2) { border-bottom:1px solid rgba(11,35,69,.12); } }
 @media (max-width:840px) { .coa-photo-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media (max-width:540px) { .coa-sort-note { display:block; margin-top:9px; }.coa-archive-head { align-items:flex-start; flex-direction:column; gap:12px; }.coa-photo-grid { grid-template-columns:1fr; gap:14px; }.coa-photo-meta { padding:14px 15px 16px; } }
+@media (max-width:540px) { .coa-sort-note { display:block; margin-top:9px; }.coa-archive-head { align-items:flex-start; flex-direction:column; gap:12px; }.coa-archive-facts { grid-template-columns:1fr; }.coa-archive-facts > div { border-right:0; border-bottom:1px solid rgba(11,35,69,.12); }.coa-archive-facts > div:last-child { border-bottom:0; }.coa-photo-grid { grid-template-columns:1fr; gap:14px; }.coa-photo-meta { padding:14px 15px 16px; } }
 
 /* Tide Peptide Laboratory page */
 .laboratory-intro-section,.laboratory-evidence-section,.laboratory-order-section,.laboratory-guarantee-section { background:#f5f8fc; }.laboratory-intro-section { padding-top:48px; }
