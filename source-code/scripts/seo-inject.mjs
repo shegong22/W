@@ -204,7 +204,7 @@ if (fs.existsSync(robotsSource)) {
 }
 
 const copiedAssets = syncDirectory(path.join(distDir, "assets"), path.join(repoRoot, "assets"));
-for (const extra of ["favicon.ico", "__manus__"]) {
+for (const extra of ["favicon.ico", "__manus__", "llms.txt"]) {
   const from = path.join(distDir, extra);
   const to = path.join(repoRoot, extra);
   if (!fs.existsSync(from)) continue;

@@ -3,4 +3,40 @@ Allow: /
 Disallow: /admin/
 Disallow: /404
 
+# AI assistants and answer engines are welcome to read and cite this site.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /404
+
+User-agent: ClaudeBot
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+Disallow: /404
+
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+Disallow: /404
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+Disallow: /404
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /404
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://tide-peptide.com/sitemap.xml
