@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reconstitution Calculator | TIDE Peptide Laboratory</title>
+    <meta
+      name="description"
+      content="Convert a labelled vial mass and a diluent volume into a stock concentration and the corresponding aliquot volume. A laboratory utility from TIDE Peptide Laboratory."
+    />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#0a1f3c" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/tide-favicon-32x32.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/tide-apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        background: #fff;
+        color: #0b2345;
+        font-family: Manrope, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; }
+      .wrap { width: min(1180px, 100% - 48px); margin: 0 auto; }
+      @media (max-width: 520px) { .wrap { width: min(100% - 32px, 600px); } }
+
+      .topbar { background: #0b2345; color: #f5f8fc; }
+      .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 66px; }
+      .topbar img { width: 62px; height: 40px; object-fit: contain; object-position: left center; filter: brightness(0) invert(1); opacity: .95; }
+      .topbar .tag { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: #9eb3cc; }
+
+      .hero { background: #f4f1e8; border-bottom: 1px solid #e6e2d6; padding: 58px 0 46px; }
+      .eyebrow { margin: 0 0 12px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #8a7f66; font-weight: 600; }
+      h1 {
+        margin: 0 0 16px;
+        font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        font-size: clamp(30px, 4.4vw, 47px);
+        line-height: 1.1;
+        letter-spacing: -.01em;
+      }
+      .hero .sub { margin: 0; max-width: 64ch; color: #4c5a70; font-size: 16.5px; }
+
+      .page { flex: 1 0 auto; padding: 42px 0 64px; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+      @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+      .card {
+        border: 1px solid #e3e7ec;
+        border-radius: 16px;
+        background: #fff;
+        padding: 26px;
+        box-shadow: 0 1px 2px rgba(11, 35, 69, .04);
+      }
+      .card h2 {
+        margin: 0 0 20px;
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: #6b7a90;
+      }
+      .card h2::before {
+        content: "";
+        display: inline-block;
+        width: 4px; height: 13px; margin-right: 10px;
+        vertical-align: -1px;
+        border-radius: 3px;
+        background: #2d6db7;
+      }
+      label.lbl { display: block; margin: 0 0 8px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #6b7a90; }
+      select, input[type="number"] {
+        width: 100%; height: 52px;
+        border: 1px solid #d9e0e9; border-radius: 12px;
+        background: #fbfcfd; padding: 0 14px;
+        font: inherit; font-size: 16px; color: #0b2345;
+      }
+      select { -webkit-appearance: none; appearance: none; padding-right: 42px;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7a90' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 16px center; }
+      select:focus, input:focus { outline: 2px solid #2d6db7; outline-offset: 1px; border-color: #2d6db7; }
+
+      .ctl { margin-top: 26px; }
+      .ctl-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+      .ctl-label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #6b7a90; }
+      .ctl-label em { font-style: normal; text-transform: none; letter-spacing: 0; color: #93a1b5; font-weight: 500; }
+      .unit-switch { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid #d9e0e9; border-radius: 999px; background: #f2f5f9; flex-shrink: 0; }
+      .unit-switch button { min-height: 34px; padding: 6px 15px; border: 0; border-radius: 999px; background: transparent; font: inherit; font-size: 13px; font-weight: 600; color: #5b6b83; cursor: pointer; }
+      .unit-switch button.on { background: #0b2345; color: #fff; }
+      .numbox { position: relative; margin: 14px 0 4px; }
+      .numbox input { height: 56px; padding-right: 66px; font-size: 20px; font-weight: 700; }
+      .numbox input::-webkit-outer-spin-button, .numbox input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+      .numbox input[type="number"] { -moz-appearance: textfield; }
+      .numbox .suf { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600; color: #8b98ab; pointer-events: none; }
+      input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 26px; margin: 4px 0 0; background: transparent; touch-action: manipulation; }
+      input[type="range"]::-webkit-slider-runnable-track { height: 6px; border-radius: 999px; background: #e2e8f0; }
+      input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border: 2px solid #2d6db7; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(11, 35, 69, .25); }
+      input[type="range"]::-moz-range-track { height: 6px; border-radius: 999px; background: #e2e8f0; }
+      input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border: 2px solid #2d6db7; border-radius: 50%; background: #fff; }
+      input[type="range"]:focus-visible { outline: 2px solid #2d6db7; outline-offset: 3px; border-radius: 6px; }
+      .rng-cap { display: flex; justify-content: space-between; margin-top: 2px; font-size: 11.5px; color: #93a1b5; }
+      .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .pills button { min-height: 38px; padding: 8px 14px; border: 1px solid #dbe2ea; border-radius: 999px; background: #f8fafc; font: inherit; font-size: 13px; font-weight: 600; color: #42536b; cursor: pointer; }
+      .pills button:hover { border-color: #2d6db7; color: #2d6db7; }
+
+      .stat { margin: 0; border: 1px solid #e3e7ec; border-radius: 14px; background: #fbfcfd; padding: 18px 20px; }
+      .stat + .stat { margin-top: 12px; }
+      .stat dt { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6b7a90; }
+      .stat dd { margin: 8px 0 0; font-size: 30px; font-weight: 800; letter-spacing: -.01em; }
+      .stat dd small { display: block; margin-top: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0; color: #6b7a90; }
+      .bar-block { margin-top: 18px; }
+      .bar { height: 12px; border-radius: 999px; background: #e6ebf1; overflow: hidden; }
+      .bar span { display: block; height: 100%; border-radius: 999px; background: #0a827d; transition: width .22s ease; }
+      .bar span.over { background: #b42318; }
+      .bar-legend { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11.5px; color: #93a1b5; }
+      .note { margin: 14px 0 0; border: 1px solid #cfe4f7; border-radius: 12px; background: #f2f8fe; padding: 12px 14px; font-size: 14px; line-height: 1.55; color: #3d5a7d; }
+      .warnings { display: grid; gap: 10px; margin-top: 16px; }
+      .warn, .info { border-radius: 12px; padding: 12px 14px; font-size: 14px; line-height: 1.55; }
+      .warn { border: 1px solid #f0d9a8; background: #fdf7ea; color: #6b4d05; }
+      .info { border: 1px solid #cfe9e6; background: #f1fbfa; color: #0a5450; }
+      .empty { border: 1px dashed #d9e0e9; border-radius: 12px; background: #fbfcfd; padding: 20px; font-size: 14.5px; color: #7b8798; }
+      .formula { margin-top: 18px; border-top: 1px solid #e9edf2; padding-top: 16px; }
+      .formula h3 { margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6b7a90; }
+      .formula code {
+        display: block; margin: 0 0 8px; padding: 10px 12px;
+        border: 1px solid #e3e7ec; border-radius: 10px; background: #fbfcfd;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12.5px; line-height: 1.5; color: #2c3f5c;
+      }
+      .formula .muted { margin: 10px 0 0; font-size: 13px; line-height: 1.6; color: #6b7a90; }
+      .foot { margin: 26px 0 0; max-width: 80ch; font-size: 13.5px; line-height: 1.65; color: #6b7a90; }
+
+      .site-footer { margin-top: 52px; background: #0b2345; color: #9eb3cc; }
+      .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; min-height: 106px; font-size: 11px; letter-spacing: .08em; }
+      .footer-inner img { width: 48px; height: 32px; object-fit: contain; object-position: left center; filter: brightness(0) invert(1); opacity: .92; }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 22px; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; }
+      .footer-links a { color: #cfe0f2; text-decoration: none; }
+      .footer-links a:hover { color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <a href="/" aria-label="TIDE Peptide Laboratory home">
+          <img src="/assets/tide-logo_e4a10c2a.png" alt="TIDE Peptide Laboratory" />
+        </a>
+        <span class="tag">Laboratory tool</span>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Reference material · working stock</p>
+        <h1>Reconstitution Calculator</h1>
+        <p class="sub">
+          Enter the mass printed on the vial and the volume of diluent you add. The calculator
+          returns the resulting stock concentration and the aliquot volume that carries a chosen
+          mass of compound.
+        </p>
+      </div>
+    </section>
+
+    <main class="page">
+      <div class="wrap">
+        <div class="grid">
+          <section class="card">
+            <h2>Your vial</h2>
+
+            <label class="lbl" for="cmp">Compound / SKU</label>
+            <select id="cmp"></select>
+            <p class="note" id="note" hidden></p>
+
+            <div class="ctl">
+              <div class="ctl-head">
+                <span class="ctl-label">Vial mass <em>(as labelled)</em></span>
+              </div>
+              <div class="numbox">
+                <input type="number" id="massN" step="0.5" min="0.1" max="2000" inputmode="decimal" />
+                <span class="suf">mg</span>
+              </div>
+              <input type="range" id="massR" min="1" max="100" step="0.5" />
+              <div class="rng-cap"><span id="massMin">1 mg</span><span id="massMax">100 mg</span></div>
+              <div class="pills" id="massP"></div>
+            </div>
+
+            <div class="ctl">
+              <div class="ctl-head">
+                <span class="ctl-label">Diluent volume <em>(added)</em></span>
+              </div>
+              <div class="numbox">
+                <input type="number" id="volN" step="0.1" min="0.1" max="60" inputmode="decimal" />
+                <span class="suf">mL</span>
+              </div>
+              <input type="range" id="volR" min="0.5" max="10" step="0.1" />
+              <div class="rng-cap"><span id="volMin">0.5 mL</span><span id="volMax">10 mL</span></div>
+              <div class="pills" id="volP"></div>
+            </div>
+
+            <div class="ctl">
+              <div class="ctl-head">
+                <span class="ctl-label">Aliquot mass</span>
+                <span class="unit-switch" role="group" aria-label="Aliquot mass unit">
+                  <button type="button" id="uMg" aria-pressed="true" class="on">mg</button>
+                  <button type="button" id="uMcg" aria-pressed="false">µg</button>
+                </span>
+              </div>
+              <div class="numbox">
+                <input type="number" id="tgtN" step="0.05" min="0.001" max="2000" inputmode="decimal" />
+                <span class="suf" id="tgtSuf">mg</span>
+              </div>
+              <input type="range" id="tgtR" min="0.1" max="50" step="0.05" />
+              <div class="rng-cap"><span id="tgtMin">0.1 mg</span><span id="tgtMax">50 mg</span></div>
+              <div class="pills" id="tgtP"></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Result</h2>
+            <div id="out"></div>
+            <div class="formula">
+              <h3>How it is calculated</h3>
+              <code>stock concentration (mg/mL) = vial mass (mg) &divide; diluent volume (mL)</code>
+              <code>aliquot volume (mL) = aliquot mass (mg) &divide; stock concentration (mg/mL)</code>
+              <p class="muted">
+                1 mg/mL is the same as 1 &micro;g/&micro;L, so 0.200 mL and 200.0 &micro;L are the same
+                draw. Figures are reported to the precision each term carries &mdash; weigh and pipette to
+                the resolution of your own instruments.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <p class="foot">
+          For laboratory research use only — not for human or veterinary use. This utility converts
+          a labelled vial mass and a diluent volume into a stock concentration and the corresponding
+          aliquot volume. It is not medical advice and not a guide for administration. Confirm the
+          mass against the vial label and the batch documentation before you calculate.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <a href="/" aria-label="TIDE Peptide Laboratory home">
+          <img src="/assets/tide-logo_e4a10c2a.png" alt="TIDE Peptide Laboratory" />
+        </a>
+        <nav class="footer-links" aria-label="Site">
+          <a href="/">Home</a>
+          <a href="/contact/">Contact us</a>
+          <a href="/products/">Portfolio</a>
+        </nav>
+        <span>For laboratory research use only</span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var RAW = [
+          "Semaglutide|SM5|5", "Semaglutide|SM10|10", "Semaglutide|SM15|15", "Semaglutide|SM20|20",
+          "Semaglutide|SM30|30", "Semaglutide|SM40|40", "Semaglutide|SM50|50",
+          "Tirzepatide|TR5|5", "Tirzepatide|TR10|10", "Tirzepatide|TR15|15", "Tirzepatide|TR20|20",
+          "Tirzepatide|TR30|30", "Tirzepatide|TR40|40", "Tirzepatide|TR50|50", "Tirzepatide|TR60|60",
+          "Tirzepatide|TR100|100", "Tirzepatide|TR120|120",
+          "Retatrutide|RT5|5", "Retatrutide|RT10|10", "Retatrutide|RT15|15", "Retatrutide|RT20|20",
+          "Retatrutide|RT30|30", "Retatrutide|RT40|40", "Retatrutide|RT50|50", "Retatrutide|RT60|60",
+          "Retatrutide|RT100|100",
+          "Cagrilintide|CGL5|5", "Cagrilintide|CGL10|10",
+          "Mazdutide|MZ5|5", "Mazdutide|MZ10|10", "Survodutide|SUR10|10",
+          "Liraglutide|LIR5|5", "Liraglutide|LIR10|10", "Liraglutide|LIR30|30",
+          "ARA-290|RA10|10", "AOD 9604|AOD5|5", "AOD 9604|AOD10|10",
+          "MOTS-c|MS10|10", "MOTS-c|MS20|20", "MOTS-c|MS40|40",
+          "BPC-157|BC5|5", "BPC-157|BC10|10", "BPC-157|BC20|20",
+          "TB-500 (Thymosin B4)|TB5|5", "TB-500 (Thymosin B4)|TB10|10", "TB-500 (Thymosin B4)|TB20|20",
+          "BPC-157 + TB-500|BB10|10", "BPC-157 + TB-500|BB20|20",
+          "Thymosin Alpha-1|TA5|5", "Thymosin Alpha-1|TA10|10", "Thymalin|TY10|10",
+          "GHK-Cu|CU50|50", "GHK-Cu|CU100|100", "AHK-Cu|AU50|50", "AHK-Cu|AU100|100",
+          "KPV|KP5|5", "KPV|KP10|10", "Matrixyl|MX10|10", "Cartalax|LAX20|20",
+          "Glow|GLOW70|70", "Klow|KLOW80|80",
+          "Epithalon|ET10|10", "Epithalon|ET50|50", "Pinealon|PIN10|10", "FOXO4-DRI|F410|10",
+          "NAD+|NJ100|100", "NAD+|NJ500|500", "NAD+|NJ1000|1000",
+          "Glutathione|GTT600|600", "Glutathione|GTT1500|1500",
+          "DSIP|DS5|5", "DSIP|DS10|10", "Semax|XA5|5", "Semax|XA10|10", "Selank|SK5|5",
+          "Selank|SK10|10", "PE-22-28|PE5|5", "PE-22-28|PE10|10", "Snap-8|NP810|10",
+          "Kisspeptin-10|KS5|5", "Kisspeptin-10|KS10|10", "Gonadorelin|GND2|2",
+          "CJC-1295 with DAC|CD2|2", "CJC-1295 with DAC|CD5|5", "CJC-1295 with DAC|CD10|10",
+          "CJC-1295 no DAC|CND2|2", "CJC-1295 no DAC|CND5|5", "CJC-1295 no DAC|CND10|10",
+          "CJC-1295 no DAC + Ipamorelin|CP10|10",
+          "Ipamorelin|IP5|5", "Ipamorelin|IP10|10", "Sermorelin|SMO5|5", "Sermorelin|SMO10|10",
+          "Tesamorelin|TSM2|2", "Tesamorelin|TSM5|5", "Tesamorelin|TSM10|10", "Tesamorelin|TSM20|20",
+          "GHRP-6|G65|5", "GHRP-6|G610|10",
+          "Adamax|ADA5|5", "Adamax|ADA10|10", "B12 (Methylcobalamin)|B10|10",
+          "PT-141|PT10|10", "Oxytocin|OT5|5", "Oxytocin|OT10|10", "VIP|VP5|5", "VIP|VP10|10",
+          "SS-31|2S10|10", "SS-31|2S50|50", "5-Amino|5AM|5", "5-Amino|10AM|10", "5-Amino|50AM|50"
+        ];
+
+        var NOTES = {
+          "BPC-157 + TB-500": "Co-lyophilised blend — the labelled mass is the combined total of both peptides.",
+          "Glow": "Multi-peptide blend — the labelled mass is the combined total.",
+          "Klow": "Multi-peptide blend — the labelled mass is the combined total.",
+          "CJC-1295 no DAC + Ipamorelin": "Combination vial — the labelled mass is the combined total of both peptides."
+        };
+
+        var el = {};
+        ["cmp", "note", "out", "massN", "massR", "massMin", "massMax", "massP",
+         "volN", "volR", "volMin", "volMax", "volP",
+         "tgtN", "tgtR", "tgtMin", "tgtMax", "tgtP", "tgtSuf", "uMg", "uMcg"]
+          .forEach(function (id) { el[id] = document.getElementById(id); });
+
+        var unit = "mg";
+
+        function numOf(input) { var v = parseFloat(input.value); return isFinite(v) && v > 0 ? v : 0; }
+        function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
+        function trim(v) { return String(Math.round(v * 10000) / 10000); }
+
+        function bandMass() {
+          var v = numOf(el.massN) || 10;
+          if (v <= 100) return { min: 1, max: 100, step: 0.5, pills: [1, 5, 10, 20, 50, 100] };
+          if (v <= 500) return { min: 10, max: 500, step: 5, pills: [50, 100, 250, 500] };
+          return { min: 50, max: 2000, step: 25, pills: [100, 500, 1000, 1500, 2000] };
+        }
+        function bandVol() {
+          var v = numOf(el.volN) || 2;
+          if (v <= 10) return { min: 0.5, max: 10, step: 0.1, pills: [0.5, 1, 2, 3, 5, 10] };
+          return { min: 2, max: 30, step: 0.5, pills: [5, 10, 15, 20, 30] };
+        }
+        function bandTgt() {
+          if (unit === "mcg") {
+            return { min: 25, max: 5000, step: 25, pills: [100, 250, 500, 1000, 2000, 5000] };
+          }
+          return { min: 0.1, max: 50, step: 0.05, pills: [0.1, 0.25, 0.5, 1, 2, 5, 10, 25, 50] };
+        }
+
+        var CTRL = {
+          mass: {
+            num: el.massN, range: el.massR, minEl: el.massMin, maxEl: el.massMax, pillsEl: el.massP,
+            band: bandMass, lo: 0.1, hi: 2000,
+            cap: function (v) { return trim(v) + " mg"; }
+          },
+          vol: {
+            num: el.volN, range: el.volR, minEl: el.volMin, maxEl: el.volMax, pillsEl: el.volP,
+            band: bandVol, lo: 0.1, hi: 60,
+            cap: function (v) { return trim(v) + " mL"; }
+          },
+          tgt: {
+            num: el.tgtN, range: el.tgtR, minEl: el.tgtMin, maxEl: el.tgtMax, pillsEl: el.tgtP,
+            band: bandTgt,
+            lo: function () { return unit === "mcg" ? 1 : 0.001; },
+            hi: function () { return unit === "mcg" ? 2000000 : 2000; },
+            cap: function (v) { return trim(v) + " " + unit; }
+          }
+        };
+
+        function sync(name) {
+          var c = CTRL[name], b = c.band(), v = numOf(c.num);
+          c.range.min = b.min; c.range.max = b.max; c.range.step = b.step;
+          c.range.value = clamp(v || b.min, b.min, b.max);
+          c.minEl.textContent = c.cap(b.min);
+          c.maxEl.textContent = c.cap(b.max);
+          var sig = b.pills.join(",");
+          if (c.pillsEl.getAttribute("data-sig") !== sig) {
+            c.pillsEl.setAttribute("data-sig", sig);
+            c.pillsEl.innerHTML = "";
+            b.pills.forEach(function (p) {
+              var bt = document.createElement("button");
+              bt.type = "button";
+              bt.textContent = c.cap(p);
+              bt.addEventListener("click", function () { setv(name, p); });
+              c.pillsEl.appendChild(bt);
+            });
+          }
+          if (document.activeElement !== c.num && v) c.num.value = trim(v);
+        }
+
+        function setv(name, v) {
+          var c = CTRL[name];
+          if (!isFinite(v)) return;
+          var lo = typeof c.lo === "function" ? c.lo() : c.lo;
+          var hi = typeof c.hi === "function" ? c.hi() : c.hi;
+          v = clamp(v, lo, hi);
+          c.num.value = trim(v);
+          sync(name);
+          render();
+        }
+
+        ["mass", "vol", "tgt"].forEach(function (name) {
+          var c = CTRL[name];
+          c.range.addEventListener("input", function () { setv(name, parseFloat(c.range.value)); });
+          c.num.addEventListener("input", function () {
+            var v = parseFloat(c.num.value);
+            if (isFinite(v) && v > 0) {
+              var lo = typeof c.lo === "function" ? c.lo() : c.lo;
+              var hi = typeof c.hi === "function" ? c.hi() : c.hi;
+              c.num.value = c.num.value;
+              if (v >= lo && v <= hi) { sync(name); }
+            }
+            render();
+          });
+          c.num.addEventListener("blur", function () { setv(name, numOf(c.num)); });
+        });
+
+        function fmtConc(c) { return c >= 1 ? c.toFixed(2) : (c >= 0.1 ? c.toFixed(3) : c.toFixed(4)); }
+        function fmtMl(v) { return v >= 1 ? v.toFixed(2) : v.toFixed(3); }
+        function fmtUl(v) { return v >= 10 ? v.toFixed(1) : v.toFixed(2); }
+        function fmtMg(v) { return v >= 1 ? v.toFixed(2) : v.toFixed(3); }
+
+        function render() {
+          var mg = numOf(el.massN), ml = numOf(el.volN), tv = numOf(el.tgtN);
+          if (!mg || !ml || !tv) {
+            el.out.innerHTML = '<p class="empty">Enter a vial mass, a diluent volume and an ' +
+              'aliquot mass to see the stock concentration and the volume to draw.</p>';
+            return;
+          }
+          var conc = mg / ml;
+          var amg = unit === "mcg" ? tv / 1000 : tv;
+          var aml = amg / conc;
+          var aul = aml * 1000;
+          var frac = aml / ml;
+
+          var html = "";
+          html += '<dl class="stat"><dt>Stock concentration</dt><dd>' + fmtConc(conc) +
+            ' mg/mL<small>≈ ' + fmtConc(conc) + ' \u00b5g/\u00b5L</small></dd></dl>';
+          html += '<dl class="stat"><dt>Aliquot volume</dt><dd>' + fmtMl(aml) +
+            ' mL<small>' + fmtUl(aul) + ' \u00b5L \u00b7 carries ' + fmtMg(amg) + ' mg of compound</small></dd></dl>';
+
+          var pct = Math.round(clamp(frac, 0, 1) * 1000) / 10;
+          html += '<div class="bar-block"><div class="bar"><span class="' + (frac > 1 ? "over" : "") +
+            '" style="width:' + pct + '%"></span></div><div class="bar-legend"><span>0</span><span>' +
+            (Math.round(frac * 1000) / 10) + '% of the prepared volume</span><span>' + fmtMl(ml) +
+            ' mL</span></div></div>';
+
+          var w = [];
+          if (aml > 0 && aml < 0.01) {
+            w.push('<div class="warn">The aliquot volume is under 10 \u00b5L, which is below the ' +
+              'accurate range of most air-displacement pipettes. Use less diluent for a stronger ' +
+              'stock, or draw from an intermediate dilution.</div>');
+          }
+          if (amg > mg) {
+            w.push('<div class="warn">The aliquot mass is larger than the total mass in the vial.</div>');
+          }
+          if (aml > ml) {
+            w.push('<div class="info">The aliquot volume is larger than the volume you prepared \u2014 ' +
+              'the whole vial holds less than this.</div>');
+          }
+          if (w.length) html += '<div class="warnings">' + w.join("") + '</div>';
+          el.out.innerHTML = html;
+        }
+
+        function buildSelect() {
+          var o = document.createElement("option");
+          o.value = ""; o.textContent = "Custom / manual entry";
+          el.cmp.appendChild(o);
+          RAW.forEach(function (row, i) {
+            var p = row.split("|");
+            var opt = document.createElement("option");
+            opt.value = String(i);
+            opt.textContent = p[0] + " \u2014 " + p[1] + " \u2014 " + p[2] + " mg";
+            el.cmp.appendChild(opt);
+          });
+          el.cmp.addEventListener("change", function () {
+            var i = el.cmp.value;
+            if (i === "") {
+              el.note.hidden = true;
+              return;
+            }
+            var p = RAW[Number(i)].split("|");
+            setv("mass", parseFloat(p[2]));
+            var note = NOTES[p[0]];
+            if (note) { el.note.textContent = note; el.note.hidden = false; }
+            else { el.note.hidden = true; }
+          });
+        }
+
+        function setUnit(next) {
+          if (next === unit) return;
+          var v = numOf(el.tgtN);
+          unit = next;
+          el.uMg.className = unit === "mg" ? "on" : "";
+          el.uMcg.className = unit === "mcg" ? "on" : "";
+          el.uMg.setAttribute("aria-pressed", unit === "mg" ? "true" : "false");
+          el.uMcg.setAttribute("aria-pressed", unit === "mcg" ? "true" : "false");
+          el.tgtSuf.textContent = unit;
+          if (v) {
+            var conv = unit === "mcg" ? v * 1000 : v / 1000;
+            CTRL.tgt.num.value = trim(clamp(conv, CTRL.tgt.lo(), CTRL.tgt.hi()));
+          }
+          sync("tgt");
+          render();
+        }
+
+        el.uMg.addEventListener("click", function () { setUnit("mg"); });
+        el.uMcg.addEventListener("click", function () { setUnit("mcg"); });
+
+        buildSelect();
+        el.massN.value = "10";
+        el.volN.value = "2";
+        el.tgtN.value = "1";
+        sync("mass"); sync("vol"); sync("tgt");
+        render();
+      })();
+    </script>
+  </body>
+</html>

@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /404
+Disallow: /JSQ/
 
 # AI assistants and answer engines are welcome to read and cite this site.
 User-agent: GPTBot
@@ -10,28 +11,33 @@ User-agent: ChatGPT-User
 Allow: /
 Disallow: /admin/
 Disallow: /404
+Disallow: /JSQ/
 
 User-agent: ClaudeBot
 User-agent: Claude-User
 Allow: /
 Disallow: /admin/
 Disallow: /404
+Disallow: /JSQ/
 
 User-agent: PerplexityBot
 User-agent: Perplexity-User
 Allow: /
 Disallow: /admin/
 Disallow: /404
+Disallow: /JSQ/
 
 User-agent: CCBot
 Allow: /
 Disallow: /admin/
 Disallow: /404
+Disallow: /JSQ/
 
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Disallow: /404
+Disallow: /JSQ/
 
 User-agent: Google-Extended
 Allow: /
